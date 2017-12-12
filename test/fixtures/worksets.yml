@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  repetitions: 1
+  external_load: 1
+  warm_up: false
+  work_set: false
+
+two:
+  repetitions: 1
+  external_load: 1
+  warm_up: false
+  work_set: false
