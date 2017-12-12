@@ -10,7 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212192509) do
+ActiveRecord::Schema.define(version: 20171212224118) do
+
+  create_table "movements", force: :cascade do |t|
+    t.string "name"
+    t.boolean "primary"
+    t.boolean "accessory"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musclegroups", force: :cascade do |t|
+    t.string "name"
+    t.integer "workset_id"
+    t.integer "movement_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movement_id"], name: "index_musclegroups_on_movement_id"
+    t.index ["user_id"], name: "index_musclegroups_on_user_id"
+    t.index ["workset_id"], name: "index_musclegroups_on_workset_id"
+  end
+
+  create_table "muscles", force: :cascade do |t|
+    t.string "name"
+    t.integer "workset_id"
+    t.integer "musclegroup_id"
+    t.integer "movement_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movement_id"], name: "index_muscles_on_movement_id"
+    t.index ["musclegroup_id"], name: "index_muscles_on_musclegroup_id"
+    t.index ["user_id"], name: "index_muscles_on_user_id"
+    t.index ["workset_id"], name: "index_muscles_on_workset_id"
+  end
+
+  create_table "training_sessions", force: :cascade do |t|
+    t.integer "duration"
+    t.integer "rating"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_training_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,8 +68,25 @@ ActiveRecord::Schema.define(version: 20171212192509) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.text "bio"
+    t.string "location"
+    t.integer "age"
+    t.integer "height"
+    t.integer "weight"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "worksets", force: :cascade do |t|
+    t.integer "repetitions"
+    t.integer "external_load"
+    t.boolean "warm_up"
+    t.boolean "work_set"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_worksets_on_user_id"
   end
 
 end
