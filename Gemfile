@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 # Additional Gems
-gem 'd3-rails', '~> 4.1'
 gem 'jquery-rails'
 gem 'acts_as_votable', '~> 0.11.1'
 gem "paperclip"
