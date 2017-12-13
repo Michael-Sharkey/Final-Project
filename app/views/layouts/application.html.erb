@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <nav>
+      <% if signed_in? %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"} %>
+            <%= link_to "home".html_safe, root_path %>
+            <%= link_to "Your dashboard".html_safe, user_path(current_user) %>
+        <% else %>
+              <%= link_to "Log In", new_user_session_path %>
+              <%= link_to "Sign Up", new_user_registration_path %>
+            <% end %>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
