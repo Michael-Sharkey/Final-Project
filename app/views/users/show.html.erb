@@ -1,3 +1,9 @@
 <h1>Welcome <%= @user.username %></h1>
 
+<%= link_to "Workout", new_user_training_session_path(@user) %>
+
+<% @user.training_sessions.each do |x| %>
+  <%= x.duration %> ||| <%= x.rating %>
+<% end %>
+
 <%= render 'graphs/index' %>
