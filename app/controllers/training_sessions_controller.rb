@@ -3,17 +3,19 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @training_session = @user.training_sessions.new
+    @training_session = TrainingSession.new
+    @training_session.user_id = current_user.id
+    2.times { @training_session.worksets.build}
+
   end
 
   def create
-    @user = current_user
-    @training_session = @user.training_sessions.new(training_session_params)
+    @training_session = TrainingSession.new(training_session_params)
+    @training_session.user_id = current_user.id
     if @training_session.save
-      redirect_to @user, notice: 'Nice!'
+      redirect_to current_user, notice: 'Nice!'
     else
-      render 'new'
+      render 'new', notice: 'Something went wrong'
     end
   end
 
@@ -25,7 +27,7 @@ class TrainingSessionsController < ApplicationController
 
   private
   def training_session_params
-    params.require(:training_session).permit(:user_id, :duration, :rating)
+    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :repetitions, :external_load] )
   end
 
 end
