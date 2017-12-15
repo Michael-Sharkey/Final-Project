@@ -1,8 +1,6 @@
 class Workset < ApplicationRecord
-  has_and_belongs_to_many :musclegroups
-  belongs_to :training_session
-  belongs_to :user
+  belongs_to :training_session, optional: true
+  belongs_to :user, optional: true
 
-  accepts_nested_attributes_for :musclegroups
 
 end
