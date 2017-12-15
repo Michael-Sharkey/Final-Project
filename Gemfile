@@ -8,7 +8,7 @@ end
 # Additional Gems
 gem 'jquery-rails'
 gem 'acts_as_votable', '~> 0.11.1'
-gem "paperclip"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # gem 'has_scope'
 gem 'devise'
 gem 'trix'
