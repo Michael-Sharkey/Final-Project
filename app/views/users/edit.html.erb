@@ -1,4 +1,9 @@
-<%= form_with model: @user, local: true do |f| %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+
+<%= form_with model: @user, html: { multipart: true}, local: true do |f| %>
+<%= f.label 'Profile Picture' %>
+<%= f.file_field :avatar %>
 <%= f.label 'Username' %>
 <%= f.text_field :username %><br>
 <%= f.label 'Bio' %>
