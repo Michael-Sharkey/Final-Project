@@ -1,16 +1,12 @@
 <h1>Log a Workout</h1>
 
 <%= form_with model: @training_session, local: true do |f| %>
-<ul>
-  <%= f.fields_for :workset do |worksets_f| %>
-  <li>
-    <%= worksets_f.label :repetitions %>
-    <%= worksets_f.text_field :repetitions %>
-    <%= worksets_f.label :external_load %>
-    <%= worksets_f.text_field :external_load %>
-  </li>
+  <%= f.fields_for :worksets do |w| %>
+    <%= w.label :repetitions %>
+    <%= w.text_field :repetitions %>
+    <%= w.label :external_load %>
+    <%= w.text_field :external_load %>
   <% end %>
-</ul>
 
   <%= f.label 'duration' %>
   <%= f.text_field :duration %>

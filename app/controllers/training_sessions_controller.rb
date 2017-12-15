@@ -5,7 +5,7 @@ class TrainingSessionsController < ApplicationController
   def new
     @training_session = TrainingSession.new
     @training_session.user_id = current_user.id
-    2.times { @training_session.worksets.build}
+    2.times { @training_session.worksets.new}
 
   end
 
@@ -27,7 +27,7 @@ class TrainingSessionsController < ApplicationController
 
   private
   def training_session_params
-    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :repetitions, :external_load] )
+    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :repetitions, :external_load, '_destroy'])
   end
 
 end
