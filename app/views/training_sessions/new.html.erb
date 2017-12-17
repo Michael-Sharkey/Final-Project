@@ -2,6 +2,9 @@
 
 <%= form_with model: @training_session, local: true do |f| %>
     <%= f.fields_for :worksets do |w| %>
+      <%= w.label :type %>
+      <%= w.select :type, ['Push', 'Pull', 'Squat', 'Hinge', 'Calisthenics']%>
+
       <%= w.label 'Exercise' %>
       <%= w.text_field :exercise %>
       <%= w.label 'Reps' %>
