@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171216213437) do
   end
 
   create_table "worksets", force: :cascade do |t|
+    t.string "type"
     t.string "exercise"
     t.integer "repetitions"
     t.integer "external_load"
