@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171216213437) do
 
-  create_table "movement_patterns", force: :cascade do |t|
-    t.string "name"
-    t.integer "training_session_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["training_session_id"], name: "index_movement_patterns_on_training_session_id"
-  end
-
   create_table "training_sessions", force: :cascade do |t|
     t.integer "duration"
     t.integer "rating"
@@ -59,13 +51,10 @@ ActiveRecord::Schema.define(version: 20171216213437) do
     t.string "exercise"
     t.integer "repetitions"
     t.integer "external_load"
-    t.boolean "warm_up"
-    t.integer "user_id"
     t.integer "training_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["training_session_id"], name: "index_worksets_on_training_session_id"
-    t.index ["user_id"], name: "index_worksets_on_user_id"
   end
 
 end
