@@ -26,7 +26,7 @@ class TrainingSessionsController < ApplicationController
 
   private
   def training_session_params
-    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :exercise, :repetitions, :external_load, '_destroy'])
+    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :type, :exercise, :repetitions, :external_load, '_destroy'])
   end
 
 end
