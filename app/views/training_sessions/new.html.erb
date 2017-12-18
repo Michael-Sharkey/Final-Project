@@ -2,19 +2,31 @@
 
 <%= form_with model: @training_session, local: true do |f| %>
     <%= f.fields_for :worksets do |w| %>
-      <%= w.label 'Movement Pattern' %>
-      <%= w.select :type, ['Push', 'Pull', 'Squat', 'Hinge', 'Calisthenics'] %>
-      <%= w.label 'Exercise' %>
-      <%= w.text_field :exercise %>
       <%= w.label 'Reps' %>
       <%= w.text_field :repetitions %>
       <%= w.label 'Weight' %>
       <%= w.text_field :external_load %>
+      <br>
+      <br>
     <% end %>
-
-  <%= f.label 'Duration' %>
-  <%= f.text_field :duration %>
-  <%= f.label 'Rating' %>
-  <%= f.text_field :rating %>
+    <br>
+    <br>
+    <%= f.label 'Duration' %>
+    <%= f.text_field :duration %>
+    <br>
+    <br>
+    <%= f.label 'Rating' %>
+    <%= f.text_field :rating %>
+    <br>
+    <br>
   <%= f.submit %>
+<% end %>]
+
+<%= simple_form_for @training_session do |f| %>
+  <%= f.simple_fields_for :worksets do |w| %>
+    <%= w.input :repetitions %>
+    <%= w.input :external_load %>
+  <% end %>
+  <%= f.input :duration %>
+  <%= f.button :submit %>
 <% end %>
