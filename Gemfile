@@ -12,9 +12,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # gem 'has_scope'
 gem 'devise'
 gem 'trix'
-gem 'ransack', github: 'activerecord-hackery/ransack'
-gem "select2-rails"
-
+gem 'chosen-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
