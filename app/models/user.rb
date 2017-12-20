@@ -8,9 +8,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :training_sessions
-  has_many :worksets
-
-  accepts_nested_attributes_for :worksets
+  accepts_nested_attributes_for :training_sessions
 
 
 end

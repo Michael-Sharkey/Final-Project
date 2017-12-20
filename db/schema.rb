@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216213437) do
+ActiveRecord::Schema.define(version: 20171219170240) do
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.integer "repetitions"
+    t.integer "external_load"
+    t.integer "training_session_id"
+    t.integer "movement_pattern_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movement_pattern_id"], name: "index_exercises_on_movement_pattern_id"
+    t.index ["training_session_id"], name: "index_exercises_on_training_session_id"
+  end
+
+  create_table "movement_patterns", force: :cascade do |t|
+    t.string "name"
+    t.string "muscles"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "training_sessions", force: :cascade do |t|
     t.integer "duration"
@@ -45,17 +64,6 @@ ActiveRecord::Schema.define(version: 20171216213437) do
     t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "worksets", force: :cascade do |t|
-    t.string "type"
-    t.string "exercise"
-    t.integer "repetitions"
-    t.integer "external_load"
-    t.integer "training_session_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["training_session_id"], name: "index_worksets_on_training_session_id"
   end
 
 end

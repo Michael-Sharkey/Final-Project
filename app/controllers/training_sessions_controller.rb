@@ -5,7 +5,9 @@ class TrainingSessionsController < ApplicationController
   def new
     @training_session = TrainingSession.new
     @training_session.user_id = current_user.id
-    2.times { @training_session.worksets.new}
+    2.times { @training_session.exercises.new}
+    @exercises = @training_session.exercises.all
+    @movement_patterns = @training_session.movement_patterns.all
   end
 
   def create
@@ -26,7 +28,7 @@ class TrainingSessionsController < ApplicationController
 
   private
   def training_session_params
-    params.require(:training_session).permit(:user_id, :duration, :rating, worksets_attributes: [:id, :type, :exercise, :repetitions, :external_load, '_destroy'])
+    params.require(:training_session).permit(:user_id, :duration, :rating, '_destroy', exercises_attributes: [:id, :name, :movement_pattern, :repetitions, :external_load])
   end
 
 end
