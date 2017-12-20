@@ -1,6 +1,7 @@
-class CreateWorsketTable < ActiveRecord::Migration[5.1]
+class CreateExercise < ActiveRecord::Migration[5.1]
   def change
-    create_table :worksets do |t|
+    create_table :exercises do |t|
+      t.string :name
       t.integer :repetitions
       t.integer :external_load
       t.references :training_session, foreign_key: true

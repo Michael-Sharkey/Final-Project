@@ -1,32 +1,51 @@
 <h1>Log a Workout</h1>
 
-<%= form_with model: @training_session, local: true do |f| %>
-    <%= f.fields_for :worksets do |w| %>
-      <%= w.label 'Reps' %>
-      <%= w.text_field :repetitions %>
-      <%= w.label 'Weight' %>
-      <%= w.text_field :external_load %>
-      <br>
-      <br>
-    <% end %>
-    <br>
-    <br>
-    <%= f.label 'Duration' %>
-    <%= f.text_field :duration %>
-    <br>
-    <br>
-    <%= f.label 'Rating' %>
-    <%= f.text_field :rating %>
-    <br>
-    <br>
-  <%= f.submit %>
-<% end %>]
-
-<%= simple_form_for @training_session do |f| %>
-  <%= f.simple_fields_for :worksets do |w| %>
-    <%= w.input :repetitions %>
-    <%= w.input :external_load %>
-  <% end %>
-  <%= f.input :duration %>
-  <%= f.button :submit %>
+<%= form_with model: @training_session, local: true, class: 'workout' do |e| %>
+  <table>
+    <tr>
+      <td>
+        <%= e.label 'Movement Pattern' %>
+      </td>
+      <td>
+        <%= e.collection_select @movement_patterns,
+                                MovementPattern.order(:name),
+                                :id,
+                                :name,
+                                {include_blank: true},
+                                {id: 'movement_pattern'} %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= e.label 'Name' %>
+      </td>
+      <td>
+        <%= e.grouped_collection_select @exercises,
+                                        MovementPattern.order(:name),
+                                        :exercises,
+                                        :name,
+                                        :id,
+                                        :name,
+                                        { include_blank: true},
+                                        {id: 'exercise'} %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= e.label 'Duration' %>
+      </td>
+      <td>
+        <%= e.text_field :duration %>
+      </td>
+      <td>
+        <%= e.label 'Rating' %>
+      </td>
+      <td>
+        <%= e.text_field :rating %>
+      </td>
+      <td>
+        <%= e.submit %>
+      </td>
+    </tr>
+  </table>
 <% end %>
