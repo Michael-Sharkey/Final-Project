@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-  var mP = document.querySelector('#movement_pattern');
-  var eX = document.querySelector('#exercise');
+  var mP = document.querySelector('.movement');
+  var eX = document.querySelector('.exercise');
 
   function pickFilter() {
     let mPSelected = mP.selectedOptions[0].innerText;

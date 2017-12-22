@@ -1,0 +1,14 @@
+<h1>Log a Workout</h1>
+
+<%= simple_form_for @workout do |w| %>
+  <%= w.simple_fields_for :worksets do |s| %>
+    <%= s.input :movement_id, collection: Movement.order(:name), input_html: {class: 'movement'} %>
+    <%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {class: 'exercise'} %>
+    <%= s.input :weight %>
+    <%= s.input :repetitions %>
+    <%= s.input :rpe %>
+  <% end %>
+
+  <%= w.button :submit %>
+
+<% end %>

@@ -1,4 +1,5 @@
 class Exercise < ApplicationRecord
-  belongs_to :training_session, optional: true
-  belongs_to :movement_pattern, optional: true
+  has_many :worksets
+  belongs_to :movements, optional: true
+  accepts_nested_attributes_for :worksets
 end
