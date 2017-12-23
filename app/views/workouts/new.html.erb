@@ -1,27 +1,28 @@
-<h1>Log a Workout</h1>
 <div class="container">
-  <table id="workout_form">
+  <div class="jumbotron">
+
     <%= simple_form_for @workout do |w| %>
-    <tr>
-      <th>Movement</th>
-      <th>Exercise</th>
-      <th>Weight</th>
-      <th>Reps</th>
-      <th>RPE</th>
-    </tr>
-      <tr class="one_set">
-        <%= w.simple_fields_for :worksets do |s| %>
-          <td><%= s.input :movement_id, collection: Movement.order(:name), input_html: {class: 'movement'}, label: false %></td>
-          <td><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {class: 'exercise'}, label: false %></td>
-          <td><%= s.input :weight, label: false %></td>
-          <td><%= s.input :repetitions, label: false %></td>
-          <td><%= s.input :rpe, label: false %></td>
-        <% end %>
-      </tr>
-    <tr>
-      <td><button id="set_btn">Add Set</button></td>
-      <td><%= w.button :submit %></td>
-    </tr>
+    <div class="form-row">
+      <div class="col"><h3>Get Swole</h3></div>
+      <div class="col"><button id="set_btn" type="button" class="btn btn-success">Add Set</button></div>
+      <div class="col"><%= w.button :submit, class: "btn btn-primary" %></div>
+    </div>
+    <div class="form-row table-dark">
+      <div class="col">Movement</div>
+      <div class="col">Exercise</div>
+      <div class="col">Weight</div>
+      <div class="col">Reps</div>
+      <div class="col">RPE</div>
+    </div>
+    <div class="form-row">
+      <%= w.simple_fields_for :worksets do |s| %>
+      <div class="col"><%= s.input :movement_id, collection: Movement.order(:name), input_html: {class: "movement"}, label: false %></div>
+      <div class="col"><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {class: 'exercise'}, label: false %></div>
+      <div class="col"><%= s.input :weight, label: false %></div>
+      <div class="col"><%= s.input :repetitions, label: false %></div>
+      <div class="col"><%= s.input :rpe, label: false %></div>
+      <% end %>
+    </div>
     <% end %>
-  </table>
+  </div>
 </div>
