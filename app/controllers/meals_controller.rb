@@ -3,6 +3,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    @meal = Meal.find_by_id(params[:id])
   end
 
   def new
@@ -13,7 +14,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     @meal.user_id = current_user.id
     if @meal.save
-      redirect_to current_user, notice: 'Success!'
+      redirect_to @meal, notice: 'Success!'
     else
       render 'new', notice: 'Something Went Wrong'
     end
@@ -21,7 +22,7 @@ class MealsController < ApplicationController
 
   private
 
-  def workout_params
-    params.require(:meal).permit(:user_id, :notes, '_destroy', worksets_attributes: [:workout_id, :id, :weight, :repetitions, :rpe, :exercise_id, :movement_id, '_destroy'])
+  def meal_params
+    params.require(:meal).permit(:id, :user_id, :name, :photo, :notes, '_destroy')
   end
 end
