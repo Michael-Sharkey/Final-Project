@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'graphs/index'
-
 
   devise_for :users
   resources :users
   resources :workouts
+  resources :meals
 
 
   root to: 'welcome#index'

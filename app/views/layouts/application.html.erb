@@ -4,25 +4,35 @@
     <title>FinalProject</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></li>
+        <li class="nav-item"><%= link_to "Eat", new_meal_path, class: "nav-link active" %></li>
+      </ul>
+
+      <ul class="nav justify-content-end">
       <% if signed_in? %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"} %>
-            <%= link_to "home".html_safe, root_path %>
-            <%= link_to "Your dashboard".html_safe, user_path(current_user) %>
-        <% else %>
-              <%= link_to "Log In", new_user_session_path %>
-              <%= link_to "Sign Up", new_user_registration_path %>
-            <% end %>
+        <li class="nav-item"><%= link_to "Home".html_safe, root_path, class: "nav-link active" %></li>
+        <li class="nav-item"><%= link_to "Dashboard".html_safe, user_path(current_user), class: "nav-link active" %></li>
+        <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "nav-link active" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Log In", new_user_session_path, class: "nav-link active" %></li>
+        <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
+      <% end %>
+      </ul>
+      
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
+
+    <p class="notice alert-success"><%= notice %></p>
     <%= yield %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
   </body>
 </html>

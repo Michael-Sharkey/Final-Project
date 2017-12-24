@@ -1,21 +1,13 @@
-$(document).ready(function() {
-
-  $( ".movement" ).select2({
-      theme: "bootstrap"
-  });
-
-  $( ".exercise" ).select2({
-      theme: "bootstrap"
-  });
 
 
-  var movementFields = document.getElementsByClassName('movement');
-  var exerciseFields = document.getElementsByClassName('exercise');
 
-  const setBtn = document.querySelector('#set_btn');
-  const workout = document.querySelector('#workout_form');
-  const setRows = document.getElementsByClassName('one_set');
-  const firstRow = setRows[0];
+  // var movementFields = document.getElementsByClassName('movement');
+  // var exerciseFields = document.getElementsByClassName('exercise');
+  //
+  // const setBtn = document.querySelector('#set_btn');
+  // const workout = document.querySelector('#workout_form');
+  // const setRows = document.getElementsByClassName('one_set');
+  // const firstRow = setRows[0];
 
   // function filterExercises() {
   //   let selectedMovement = movementFields.selectedOptions[0].innerText;
@@ -44,7 +36,6 @@ $(document).ready(function() {
 
 
 
-  setBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-  })
-});
+  // setBtn.addEventListener('click', function(event) {
+  //   event.preventDefault();
+  // })
