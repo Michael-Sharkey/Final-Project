@@ -1,12 +1,4 @@
-$(document).ready(function() {
 
-  $( ".movement" ).select2({
-      theme: "bootstrap"
-  });
-
-  $( ".exercise" ).select2({
-      theme: "bootstrap"
-  });
 
 
   // var movementFields = document.getElementsByClassName('movement');
@@ -47,4 +39,3 @@ $(document).ready(function() {
   // setBtn.addEventListener('click', function(event) {
   //   event.preventDefault();
   // })
-});

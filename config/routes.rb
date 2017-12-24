@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
   resources :users
   resources :workouts
+  resources :meals
 
 
   root to: 'welcome#index'
