@@ -18,11 +18,11 @@
     </div>
     <div class="form-row">
       <%= w.simple_fields_for :worksets do |s| %>
-      <div class="col"><%= s.input :movement_id, collection: Movement.order(:name), input_html: {id: "movement"}, label: false %></div>
-      <div class="col"><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {id: "exercise"}, label: false %></div>
-      <div class="col"><%= s.input :weight, label: false %></div>
-      <div class="col"><%= s.input :repetitions, label: false %></div>
-      <div class="col"><%= s.input :rpe, label: false %></div>
+      <div class="col"><%= s.input :movement_id, collection: Movement.order(:name), input_html: {class: "form-control"}, label: false %></div>
+      <div class="col"><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {class: "form-control"}, label: false %></div>
+      <div class="col"><%= s.input :weight, input_html: {class: "form-control"}, label: false %></div>
+      <div class="col"><%= s.input :repetitions, input_html: {class: "form-control"}, label: false %></div>
+      <div class="col"><%= s.input :rpe, input_html: {class: "form-control"}, label: false %></div>
     </div>
     <% end %>
     <div class="collapse" id="commentField" class="form-row">

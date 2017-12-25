@@ -1,6 +1,5 @@
 
 
-
   // var movementFields = document.getElementsByClassName('movement');
   // var exerciseFields = document.getElementsByClassName('exercise');
   //
