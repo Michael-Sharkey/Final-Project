@@ -14,6 +14,5 @@
 //= require popper
 //= require jquery
 //= require trix
-//= require_tree .
-//= require Chart.min
 //= require bootstrap-sprockets
+//= require_tree .

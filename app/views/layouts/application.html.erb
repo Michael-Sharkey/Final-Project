@@ -9,13 +9,14 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></li>
-        <li class="nav-item"><%= link_to "Eat", new_meal_path, class: "nav-link active" %></li>
-      </ul>
+      <nav class="nav nav-pills nav-flex-column">
+        <a class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></a>
+        <a class="nav-item"><%= link_to "Eat", new_meal_path, class: "nav-link active" %></a>
+      </nav>
 
+    <div class="btn-group mr-2" role="group" aria-label="First group">
       <ul class="nav justify-content-end">
       <% if signed_in? %>
         <li class="nav-item"><%= link_to "Home".html_safe, root_path, class: "nav-link active" %></li>
@@ -26,7 +27,8 @@
         <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
       <% end %>
       </ul>
-      
+    </div>
+
     </nav>
 
 
