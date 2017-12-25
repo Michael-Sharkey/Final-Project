@@ -9,8 +9,11 @@ class User < ApplicationRecord
 
   has_many :workouts, dependent: :destroy
   has_many :worksets, through: :workouts
-  has_many :meals, dependent: :destroy 
+  has_many :meals, dependent: :destroy
+  has_many :journals, dependent: :destroy
   accepts_nested_attributes_for :workouts, allow_destroy: true
+  accepts_nested_attributes_for :journals, allow_destroy: true
+
 
 
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :workouts
   resources :meals
+  resources :journals
 
 
   root to: 'welcome#index'
