@@ -1,0 +1,10 @@
+<h1>Journals#resources</h1>
+<p>Find me in app/views/journals/resources.html.erb</p>
+
+<div class="jumbotron">
+  <%= simple_form_for @journal, url: journals_path do |j| %>
+<div class="form-row"><%= j.input :title %></div>
+<div class="form-row"><%= j.input :entry, as: :trix_editor %></div>
+<div class="form-row"><div class="col"><%= j.button :submit, class: "btn btn-primary" %></div></div>
+<% end %>
+</div>
