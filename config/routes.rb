@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
+  get 'users/data', :defaults => { :format => 'json' }
+
+
   resources :workouts
   resources :meals
   resources :journals do
