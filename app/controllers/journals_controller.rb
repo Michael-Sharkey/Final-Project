@@ -4,6 +4,7 @@ class JournalsController < ApplicationController
 
   def show
     @journal = Journal.find_by_id(params[:id])
+    @comments = @journal.comments.all
   end
 
   def new
@@ -25,4 +26,5 @@ class JournalsController < ApplicationController
   def journal_params
     params.require(:journal).permit(:id, :user_id, :title, :entry)
   end
+
 end

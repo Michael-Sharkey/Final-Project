@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :users
   resources :workouts
   resources :meals
-  resources :journals
+  resources :journals do
+    resources :comments, only: [:new, :create]
+  end
 
 
   root to: 'welcome#index'
