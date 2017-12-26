@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def index
+    get_journal
+    @comments = @journal.comments.all
   end
 
   def show

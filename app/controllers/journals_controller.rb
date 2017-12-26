@@ -4,6 +4,7 @@ class JournalsController < ApplicationController
 
   def show
     @journal = Journal.find_by_id(params[:id])
+    @comments = @journal.comments.all
   end
 
   def new

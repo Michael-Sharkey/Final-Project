@@ -1,6 +1,16 @@
-<div class="jumbotron">
+<div class="container jumbotron">
   <h3><%= @journal.title.html_safe %></h3>
   <p><%= @journal.entry.html_safe %></p>
+  <table class="table">
+    <% @comments.each do |c| %>
+    <tr>
+      <td><%= c.title %></td>
+      <td><%= c.body.html_safe %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
+
+
 
 <%= link_to "Add a Comment", new_journal_comment_path(@journal)  %>
