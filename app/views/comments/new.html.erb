@@ -1,0 +1,10 @@
+<h1>Comments#new</h1>
+<p>Find me in app/views/comments/new.html.erb</p>
+
+<div class="jumbotron">
+  <%= simple_form_for @comment, url: journal_comments_path do |c| %>
+    <div class="form-row"><%= c.input :title %></div>
+    <div class="form-row"><%= c.input :body, as: :trix_editor %></div>
+    <div class="form-row"><div class="col"><%= c.button :submit, class: "btn btn-primary" %></div></div>
+<% end %>
+</div>

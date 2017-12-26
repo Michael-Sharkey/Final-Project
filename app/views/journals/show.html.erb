@@ -2,3 +2,5 @@
   <h3><%= @journal.title.html_safe %></h3>
   <p><%= @journal.entry.html_safe %></p>
 </div>
+
+<%= link_to "Add a Comment", new_journal_comment_path(@journal)  %>
