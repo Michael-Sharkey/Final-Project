@@ -11,10 +11,10 @@
 // about supported directives.
 
 //= require rails-ujs
-//= require popper
-//= require jquery
-//= require turbolinks
 //= require trix
+//= require jquery3
+//= require popper
 //= require bootstrap-sprockets
-//= require Chart.bundle.min
+//= require chartjs
+//= require select2
 //= require_tree .
