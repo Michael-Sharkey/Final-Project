@@ -1,4 +1,10 @@
+$(document).ready(function() {
 
+  $('#movement').select2();
+
+  $('#exercise').select2();
+
+})
 
   // var movementFields = document.getElementsByClassName('movement');
   // var exerciseFields = document.getElementsByClassName('exercise');
