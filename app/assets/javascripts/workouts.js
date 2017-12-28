@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-  $('#movement').select2();
+  $('.movement').select2({
+  });
 
-  $('#exercise').select2();
+  $('.exercise').select2({
+  });
 
 })
 
