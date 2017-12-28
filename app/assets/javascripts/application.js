@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require chartjs
 //= require select2
+//= require cocoon
 //= require_tree .

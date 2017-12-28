@@ -1,7 +1,5 @@
-<div class="jumbotron container">
-  <form>
+<div class="container">
       <%= simple_form_for @workout do |w| %>
-
 
       <div class="form-row">
         <%= w.simple_fields_for :worksets do |s| %>
@@ -28,5 +26,4 @@
     </div>
   <% end %>
 
-  </form>
 </div>
