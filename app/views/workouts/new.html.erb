@@ -1,32 +1,32 @@
-<div class="container">
-  <div class="jumbotron">
+<div class="jumbotron container">
+  <form>
+      <%= simple_form_for @workout do |w| %>
 
-    <%= simple_form_for @workout do |w| %>
+
+      <div class="form-row">
+        <%= w.simple_fields_for :worksets do |s| %>
+        <div class="col"><%= s.input :movement_id, collection: Movement.order(:name), input_html: {class: "movement form-control" }, label: false %></div>
+        <div class="col"><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {class: "exercise form-control"}, label: false %></div>
+        <div class="col"><%= s.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %></div>
+        <div class="col"><%= s.input :repetitions, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %></div>
+        <div class="col"><%= s.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %></div>
+      </div>
+      <div class="form-row">
+        <div class="col"><button id="set_btn" type="button" class="btn btn-outline-primary btn-sm">Add Set</button></div>
+      </div>
+    <% end %>
+    <div class="form-row" id="commentField">
+      <div class="form-control text"><%= w.input :notes, as: :trix_editor %></div>
+    </div>
+
     <div class="form-row">
-      <div class="col"><h3>Get Swole</h3></div>
-      <div class="col"><button id="set_btn" type="button" class="btn btn-success">Add Set</button></div>
-      <div class="col"><button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#commentField" aria-expanded="false" aria-controls="collapseExample">Add Notes</button></div>
+
+      <div class="col">
+        <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse" data-target="#commentField" aria-expanded="false" aria-controls="collapse">Notes</button>
+      </div>
       <div class="col"><%= w.button :submit, class: "btn btn-primary" %></div>
     </div>
-
-    <div class="form-row table-dark">
-      <div class="col">Movement</div>
-      <div class="col">Exercise</div>
-      <div class="col">Weight</div>
-      <div class="col">Reps</div>
-      <div class="col">RPE</div>
-    </div>
-    <div class="form-row">
-      <%= w.simple_fields_for :worksets do |s| %>
-      <div class="col"><%= s.input :movement_id, collection: Movement.order(:name), input_html: {id: "movement"}, label: false %></div>
-      <div class="col"><%= s.input :exercise_id, collection: Movement.order(:name), as: :grouped_select, group_method: :exercises, input_html: {id: "exercise"}, label: false %></div>
-      <div class="col"><%= s.input :weight, input_html: {class: "form-control"}, label: false %></div>
-      <div class="col"><%= s.input :repetitions, input_html: {class: "form-control"}, label: false %></div>
-      <div class="col"><%= s.input :rpe, input_html: {class: "form-control"}, label: false %></div>
-    </div>
-    <% end %>
-    <div class="collapse" id="commentField" class="form-row">
-      <%= w.input :notes, as: :trix_editor %>
-  </div>
   <% end %>
+
+  </form>
 </div>
