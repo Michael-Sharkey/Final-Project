@@ -1,21 +1,45 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  $('.movement').select2({
-  });
+// Select2 Fields
+  // $('.movement').select2({
+  // });
+  //
+  // $('.exercise').select2({
+  // });
 
-  $('.exercise').select2({
-  });
+  // const setBtn = document.querySelector('#set_btn');
+  // const workout = document.querySelector('#worksets');
+  // const setRows = document.getElementsByClassName('one-set');
+  // const firstSet = setRows[0];
+  //
+  // function addSet() {
+  //   let newSet = document.createElement('div');
+  //   newSet.classList.add('.one-set');
+  //   newSet.classList.add('.form-row');
+  //   workout.appendChild(newSet);
+  //   newSet.outerHTML = firstSet.outerHTML;
+  // };
+  //
+  // function addTimeStamp() {
+  //   let nextSet = workout.lastElementChild;
+  //   let iD = nextSet.firstElementChild.childNodes[0].value;
+  //   iD = Date.now();
+  // };
+  //
+  // setBtn.addEventListener('click', function(event) {
+  //   event.preventDefault();
+  //   addSet();
+  //   addTimeStamp();
+  // });
 
-})
+
 
   // var movementFields = document.getElementsByClassName('movement');
   // var exerciseFields = document.getElementsByClassName('exercise');
   //
-  // const setBtn = document.querySelector('#set_btn');
-  // const workout = document.querySelector('#workout_form');
-  // const setRows = document.getElementsByClassName('one_set');
-  // const firstRow = setRows[0];
-
+  // const firstSet = setRows[0];
+  //
+  //
   // function filterExercises() {
   //   let selectedMovement = movementFields.selectedOptions[0].innerText;
   //   let exercises = [];
@@ -31,18 +55,12 @@ $(document).ready(function() {
   //   });
   // };
   //
-  // function addSet() {
-  //   let newSet = document.createElement('tr');
-  //   newSet.classList.add('.one_set');
-  //   newSet.innerHTML = firstRow.innerHTML;
-  //   workout.appendChild(newSet);
-  // }
   //
-  // mP.addEventListener('change', filterExercises);
+
+  //
+  //
+  // movementFields.addEventListener('change', filterExercises);
+  //
 
 
-
-
-  // setBtn.addEventListener('click', function(event) {
-  //   event.preventDefault();
   // })

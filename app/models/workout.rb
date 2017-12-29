@@ -1,5 +1,5 @@
 class Workout < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :worksets, inverse_of: :workout, dependent: :destroy
   has_many :movements, through: :worksets
   has_many :exercises, through: :worksets
