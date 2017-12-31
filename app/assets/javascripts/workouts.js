@@ -56,7 +56,7 @@
   // };
   //
   //
-
+  //
   //
   //
   // movementFields.addEventListener('change', filterExercises);
