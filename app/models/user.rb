@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :workouts, inverse_of: :user, dependent: :destroy
-  has_many :worksets, inverse_of: :user, through: :workouts
+  has_many :worksets, through: :workouts
   has_many :meals, inverse_of: :user, dependent: :destroy
   has_many :journals, inverse_of: :user, dependent: :destroy
   has_many :comments, inverse_of: :user, dependent: :destroy

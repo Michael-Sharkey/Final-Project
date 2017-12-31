@@ -11,9 +11,6 @@ class AddProperForeignKeysToAllTables < ActiveRecord::Migration[5.1]
 
     add_column :worksets, :exercise_id, :integer
     add_foreign_key :worksets, :exercises
-
-    add_column :exercises, :movement_id, :integer
-    add_foreign_key :exercises, :movements
-
+    
   end
 end
