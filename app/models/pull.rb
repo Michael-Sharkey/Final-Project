@@ -1,0 +1,2 @@
+class Pull < Workset
+end

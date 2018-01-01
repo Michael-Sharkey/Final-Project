@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171225174322) do
 
-  create_table "exercises", force: :cascade do |t|
-    t.string "name"
-    t.integer "movement_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movement_id"], name: "index_exercises_on_movement_id"
-  end
-
   create_table "journals", force: :cascade do |t|
     t.string "title"
     t.text "entry"
@@ -40,12 +32,6 @@ ActiveRecord::Schema.define(version: 20171225174322) do
     t.datetime "photo_updated_at"
     t.text "notes"
     t.index ["user_id"], name: "index_meals_on_user_id"
-  end
-
-  create_table "movements", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,14 +68,14 @@ ActiveRecord::Schema.define(version: 20171225174322) do
   end
 
   create_table "worksets", force: :cascade do |t|
+    t.string "type"
+    t.string "exercise"
     t.integer "weight"
     t.integer "repetitions"
     t.integer "rpe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "workout_id"
-    t.integer "movement_id"
-    t.integer "exercise_id"
   end
 
 end

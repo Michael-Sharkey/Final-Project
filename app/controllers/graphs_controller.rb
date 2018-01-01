@@ -2,15 +2,12 @@ class GraphsController < ApplicationController
 
   def radar
     get_user
-    get_movements
-    get_exercises
-
-    @workouts = @user.workouts.last(5).reverse
-    @sets = @workouts.map{|w|w.worksets.all}
+    get_workouts
+    get_sets
 
     respond_to do |format|
       format.html
-      format.json { render json: [@movements, @exercises, @workouts, @sets] }
+      format.json { render json: [@user.email, @user.id, @workouts] }
     end
   end
 

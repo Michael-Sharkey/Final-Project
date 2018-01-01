@@ -1,0 +1,2 @@
+class Squat < Workset
+end
