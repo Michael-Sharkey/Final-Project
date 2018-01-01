@@ -1,0 +1,2 @@
+class Squat < Exercise
+end

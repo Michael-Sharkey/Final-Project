@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20171225180309) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
+    t.integer "movement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "movement_id"
+    t.index ["movement_id"], name: "index_exercises_on_movement_id"
   end
 
   create_table "journals", force: :cascade do |t|
