@@ -1,0 +1,2 @@
+class CoreStability < Workset
+end

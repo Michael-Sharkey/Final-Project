@@ -8,12 +8,9 @@ class ApplicationController < ActionController::Base
     @user = current_user
   end
 
-  def get_movements
-    @movements =  @movements = Movement.pluck(:name)
+  def get_workouts
+    @workouts = @user.workouts.order(:created_at)
   end
 
-  def get_exercises
-    @exercises = Exercise.order(:movement_id).pluck(:name)
-  end
 
 end
