@@ -1,2 +1,0 @@
-class CoreStability < Exercise
-end
