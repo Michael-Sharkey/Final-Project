@@ -11,6 +11,8 @@
   <body>
     <nav class="navbar navbar-light bg-light">
 
+      
+
       <div class="btn-group mr-2" role="group" aria-label="First group">
         <ul class="nav justify-content">
           <li class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></li>
@@ -18,21 +20,19 @@
         </ul>
       </div>
 
-    <div class="btn-group mr-2" role="group" aria-label="Second group">
-      <ul class="nav justify-content-end">
-      <% if signed_in? %>
-        <li class="nav-item"><%= link_to "Dashboard".html_safe, user_path(current_user), class: "nav-link active" %></li>
-        <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "nav-link active" %></li>
-      <% else %>
-        <li class="nav-item"><%= link_to "Log In", new_user_session_path, class: "nav-link active" %></li>
-        <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
-      <% end %>
-      </ul>
-    </div>
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <ul class="nav justify-content-end">
+          <% if signed_in? %>
+            <li class="nav-item"><%= link_to "Dashboard".html_safe, user_path(current_user), class: "nav-link active" %></li>
+            <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "nav-link active" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Log In", new_user_session_path, class: "nav-link active" %></li>
+            <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
+          <% end %>
+        </ul>
+      </div>
 
     </nav>
-
-
 
     <p class="notice alert-success"><%= notice %></p>
     <%= yield %>

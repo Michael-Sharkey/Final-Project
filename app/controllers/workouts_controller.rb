@@ -2,11 +2,13 @@ class WorkoutsController < ApplicationController
   def new
     @workout = Workout.new
     @workout.worksets.new
+    @worksets = Workset.all
   end
 
   def create
+    get_user
     @workout = Workout.new(workout_params)
-    @workout.user_id = current_user.id
+    @workout.user_id = @user.id
     if @workout.save
       redirect_to current_user, notice: 'Success!'
     else
