@@ -1,7 +1,7 @@
 class CreateWorksets < ActiveRecord::Migration[5.1]
   def change
     create_table :worksets do |t|
-      t.string :type
+      t.string :movement
       t.string :exercise
       t.integer :weight
       t.integer :repetitions

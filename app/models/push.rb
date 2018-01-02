@@ -1,2 +1,0 @@
-class Push < Workset
-end

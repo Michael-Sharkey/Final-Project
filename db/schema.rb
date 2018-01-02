@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20171225174322) do
   end
 
   create_table "worksets", force: :cascade do |t|
-    t.string "type"
+    t.string "movement"
     t.string "exercise"
     t.integer "weight"
     t.integer "repetitions"
