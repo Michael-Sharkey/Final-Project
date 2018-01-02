@@ -8,22 +8,18 @@ class ApplicationController < ActionController::Base
     @user = current_user
   end
 
-  def get_movements
-    @movements = Workset.order(:movement).pluck(:movement).uniq
+  def get_movement_info
+    @pushes = Push.joins(:workout).where("user_id = ?", @user.id)
+    @pulls = Pull.joins(:workout).where("user_id = ?", @user.id)
+    @squats = Squat.joins(:workout).where("user_id = ?", @user.id)
+    @hinges = Hinge.joins(:workout).where("user_id = ?", @user.id)
+    @cores = Core.joins(:workout).where("user_id = ?", @user.id)
+
   end
 
-  def get_latest_workout_stats
+  def get_workout_info
     @workouts = @user.workouts.order(created_at: :desc).limit(5).includes(:worksets)
     @workout_dates = @workouts.map{|w|[[w.created_at.month],[w.created_at.day],[w.created_at.year]]}
-    @workout_one = @workouts[0].worksets.map{|set|[[set.movement], [set.weight * set.repetitions]]}
-    @workout_two = @workouts[1].worksets.map{|set|[[set.movement], [set.weight * set.repetitions]]}
-    @workout_three = @workouts[2].worksets.map{|set|[[set.movement], [set.weight * set.repetitions]]}
-    @workout_four = @workouts[3].worksets.map{|set|[[set.movement], [set.weight * set.repetitions]]}
-    @workout_five = @workouts[4].worksets.map{|set|[[set.movement], [set.weight * set.repetitions]]}
   end
-
-
-
-
 
 end

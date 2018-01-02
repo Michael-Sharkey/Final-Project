@@ -1,0 +1,2 @@
+class Push < Workset
+end
