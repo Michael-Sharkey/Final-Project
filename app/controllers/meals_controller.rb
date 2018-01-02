@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   def index
-    @user = current_user
+    get_user
     @meals = @user.meals.order(created_at: :desc)
   end
 
@@ -25,6 +25,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:id, :user_id, :name, :photo, :notes, '_destroy')
+    params.require(:meal).permit(:id, :user_id, :photo, '_destroy')
   end
 end

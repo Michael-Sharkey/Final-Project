@@ -1,16 +1,11 @@
 
 
 
-<div class="jumbotron">
+<div class="container jumbotron">
   <%= simple_form_for @meal, url: meals_path do |m| %>
-<div class="form-row"><%= m.input :name %></div>
 <div class="form-row"><%= m.input :photo, as: :file %></div>
-<div class="collapse" id="commentField" class="form-row">
-  <%= m.input :notes, as: :trix_editor %>
-</div>
 <div class="form-row">
-  <div class="col"><button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#commentField" aria-expanded="false" aria-controls="collapseExample">Add Notes</button></div>
-  <div class="col"><%= m.button :submit, class: "btn btn-primary" %></div>
+  <div class="col"><%= m.button :submit, "Let's Eat!", class: "btn btn-primary" %></div>
 </div>
 <% end %>
 </div>
