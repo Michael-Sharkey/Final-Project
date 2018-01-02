@@ -41,4 +41,13 @@ class GraphsController < ApplicationController
     end
   end
 
+  def bubble
+    get_user
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: [  ] }
+    end
+  end
+
 end

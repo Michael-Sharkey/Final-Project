@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   get'graphs/radar'
+  get'graphs/bubble'
 
 
 
