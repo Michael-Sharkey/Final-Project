@@ -6,6 +6,7 @@ class CreateWorksets < ActiveRecord::Migration[5.1]
       t.integer :weight
       t.integer :repetitions
       t.integer :rpe
+      t.references :workout, foreign_key: true
 
       t.timestamps
     end

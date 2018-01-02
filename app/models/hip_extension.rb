@@ -1,2 +1,0 @@
-class HipExtension < Workset
-end

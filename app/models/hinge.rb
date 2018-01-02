@@ -1,0 +1,2 @@
+class Hinge < Workset
+end

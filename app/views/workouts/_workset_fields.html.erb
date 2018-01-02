@@ -1,10 +1,10 @@
 <div class='nested-fields form-group'>
   <div class="form-row">
     <div class="col">
-      <%= f.input :type, collection: ['Push', 'Pull', 'Squat', 'Hip Extension', 'Core Stability'], input_html: {class: "form-control-sm"}, label: false %>
+      <%= f.input :type, collection: Workset.group(:created_at).pluck(:type).uniq, input_html: {class: "form-control-sm"}, label: false %>
     </div>
     <div class="col">
-      <%= f.input :exercise, collection: Workset.order(:created_at).pluck(:exercise), input_html: {class: "form-control-sm"}, label: false %>
+      <%= f.input :exercise, collection: Workset.order(:created_at, :type, :exercise).pluck(:exercise), input_html: {class: "form-control-sm"}, label: false %>
     </div>
   </div>
   <div class="form-row">
