@@ -1,11 +1,11 @@
 class MealsController < ApplicationController
   def index
-    @user = current_user
-    @meals = @user.meals.order(created_at: :desc)
+    get_user
+    @active = @user.meals.last
+    @meals = @user.meals.order(created_at: :desc).offset(1)
   end
 
   def show
-    @meal = Meal.find_by_id(params[:id])
   end
 
   def new
@@ -25,6 +25,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:id, :user_id, :name, :photo, :notes, '_destroy')
+    params.require(:meal).permit(:id, :user_id, :photo, '_destroy')
   end
 end

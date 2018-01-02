@@ -17,7 +17,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:user_id, :notes, '_destroy', worksets_attributes: [:id, :exercise, :workout_id, :type, :weight, :repetitions, :rpe, '_destroy'])
+    params.require(:workout).permit(:id, :user_id, '_destroy', worksets_attributes: [:id, :exercise, :workout_id, :type, :weight, :repetitions, :rpe, '_destroy'])
   end
 
 end

@@ -1,10 +1,11 @@
 class JournalsController < ApplicationController
   def index
+    @user = current_user
+    @journals = @user.journals.all
   end
 
   def show
     @journal = Journal.find_by_id(params[:id])
-    @comments = @journal.comments.all
   end
 
   def new
