@@ -21,66 +21,41 @@ function drawRadar(data) {
 
   var ctx = document.getElementById("radarGraph");
   console.log(data);
-  var push = data[0];
-  var pull = data[1];
-  var squat = data[2];
-  var hinge = data[3];
-  var core = data[4];
+  var movements = data[0];
+  var volume = data[3];
+  // var label1 = `${data[1][0][0]}/${data[1][0][1]}/${data[1][0][2]}`;
+  // var label2 = `${data[1][1][0]}/${data[1][1][1]}/${data[1][1][2]}`;
+  // var label3 = `${data[1][2][0]}/${data[1][2][1]}/${data[1][2][2]}`;
+  // var label4 = `${data[1][3][0]}/${data[1][3][1]}/${data[1][3][2]}`;
+  // var label5 = `${data[1][4][0]}/${data[1][4][1]}/${data[1][4][2]}`;
 
   var radar = new Chart(ctx, {
-      type: 'radar',
+      type: 'polarArea',
       data: {
-          labels: ['Weight', 'Sets', 'Repetitions', 'Volume', 'RPE'],
-          datasets:
-            [
-              {
-              label: "Push",
-              data: push,
-              backgroundColor: [ 'rgba(177, 20, 20, 0.2)' ],
-              borderColor: [ 'rgba(177, 20, 20, 1)' ],
-              borderWidth: 2
-              },
-              {
-              label: "Pull",
-              data: pull,
-              backgroundColor: [ 'rgba(2177, 135, 20, 0.2)' ],
-              borderColor: [ 'rgba(177, 135, 20, 1)' ],
-              borderWidth: 2
-              },
-              {
-              label: "Squat",
-              data: squat,
-              backgroundColor: [ 'rgba(128, 167, 19, 0.2)' ],
-              borderColor: [ 'rgba(128, 167, 19, 1)' ],
-              borderWidth: 2
-              },
-              {
-              label: "Hinge",
-              data: hinge,
-              backgroundColor: [ 'rgba(16, 89, 110, 0.2)' ],
-              borderColor: [ 'rgba(16, 89, 110, 1)' ],
-              borderWidth: 2
-              },
-              {
-              label: "Core",
-              data: core,
-              backgroundColor: [ 'rgba(68, 22, 120, 0.2)' ],
-              borderColor: [ 'rgba(68, 22, 120, 1)' ],
-              borderWidth: 2
-              }
-            ]
+        datasets: [{
+          data: volume,
+
+          labels: ['Push', 'Pull', 'Squat', 'Hip Extension', 'Core Stability'],
+          backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+        }],
       },
       options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      }
-  });
-};
 
+      },
+  });
+}
 
 });

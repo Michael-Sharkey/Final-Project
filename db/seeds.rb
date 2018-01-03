@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Workset.create(movement: 'Push', exercise: 'Overhead Press')
 Workset.create(movement: 'Push', exercise: 'Bench Press')
 Workset.create(movement: 'Push', exercise: 'Push Press')

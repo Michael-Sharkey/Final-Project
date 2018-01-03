@@ -1,53 +1,72 @@
 class GraphsController < ApplicationController
 
   def radar
-    get_user
-    get_movement_info
-    get_workout_info
 
-    @pushWeight = @pushes.map{|p|p.weight}.reduce(:+)
-    @pushSets = @pushes.length
-    @pushReps = @pushes.map{|p|p.repetitions}.reduce(:+)
-    @pushVolume = @pushWeight * @pushReps
-    @pushRPE = @pushes.map{|p|p.rpe}.reduce(:+).to_f / @pushSets
+    parse_info
 
-    @pullWeight = @pulls.map{|p|p.weight}.reduce(:+)
-    @pullSets = @pulls.length
-    @pullReps = @pulls.map{|p|p.repetitions}.reduce(:+)
-    @pullVolume = @pullWeight * @pullReps
-    @pullRPE = @pulls.map{|p|p.rpe}.reduce(:+).to_f / @pullSets
+    # @pushWeight = @pushes.map{|p|p.weight}.reduce(:+)
+    # @pushSets = @pushes.length
+    # @pushReps = @pushes.map{|p|p.reps}.reduce(:+)
+    # @pushVolume = @pushWeight * @pushReps
+    # @pushRPE = @pushes.map{|p|p.rpe}.reduce(:+).to_f / @pushSets
 
-    @squatWeight = @squats.map{|p|p.weight}.reduce(:+)
-    @squatSets = @squats.length
-    @squatReps = @squats.map{|p|p.repetitions}.reduce(:+)
-    @squatVolume = @squatWeight * @squatReps
-    @squatRPE = @squats.map{|p|p.rpe}.reduce(:+).to_f / @squatSets
-
-    @hingeWeight = @hinges.map{|p|p.weight}.reduce(:+)
-    @hingeSets = @hinges.length
-    @hingeReps = @hinges.map{|p|p.repetitions}.reduce(:+)
-    @hingeVolume = @hingeWeight * @hingeReps
-    @hingeRPE = @hinges.map{|p|p.rpe}.reduce(:+).to_f / @hingeSets
-
-    @coreWeight = @cores.map{|p|p.weight}.reduce(:+)
-    @coreSets = @cores.length
-    @coreReps = @cores.map{|p|p.repetitions}.reduce(:+)
-    @coreVolume = @coreWeight * @coreReps
-    @coreRPE = @cores.map{|p|p.rpe}.reduce(:+).to_f / @coreSets
+    # @pullWeight = @pulls.map{|p|p.weight}.reduce(:+)
+    # @pullSets = @pulls.length
+    # @pullReps = @pulls.map{|p|p.reps}.reduce(:+)
+    # @pullVolume = @pullWeight * @pullReps
+    # @pullRPE = @pulls.map{|p|p.rpe}.reduce(:+).to_f / @pullSets
+    #
+    # @squatWeight = @squats.map{|p|p.weight}.reduce(:+)
+    # @squatSets = @squats.length
+    # @squatReps = @squats.map{|p|p.reps}.reduce(:+)
+    # @squatVolume = @squatWeight * @squatReps
+    # @squatRPE = @squats.map{|p|p.rpe}.reduce(:+).to_f / @squatSets
+    #
+    # @hingeWeight = @hips.map{|p|p.weight}.reduce(:+)
+    # @hingeSets = @hips.length
+    # @hingeReps = @hips.map{|p|p.reps}.reduce(:+)
+    # @hingeVolume = @hingeWeight * @hingeReps
+    # @hingeRPE = @hips.map{|p|p.rpe}.reduce(:+).to_f / @hingeSets
+    #
+    # @coreWeight = @cores.map{|p|p.weight}.reduce(:+)
+    # @coreSets = @cores.length
+    # @coreReps = @cores.map{|p|p.reps}.reduce(:+)
+    # @coreVolume = @coreWeight * @coreReps
+    # @coreRPE = @cores.map{|p|p.rpe}.reduce(:+).to_f / @coreSets
 
     respond_to do |format|
       format.html
-      format.json { render json: [ [@pushWeight, @pushSets, @pushReps, @pushVolume, @pushRPE], [@pullWeight, @pullSets, @pullReps, @pullVolume, @pullRPE], [@squatWeight, @squatSets, @squatReps, @squatVolume, @squatRPE], [@hingeWeight, @hingeSets, @hingeReps, @hingeVolume, @hingeRPE], [@coreWeight, @coreSets, @coreReps, @coreVolume, @coreRPE] ] }
+      format.json { render json: [ @movements, @workout_dates, @workouts, [@pushVol, @pullVol, @squatVol, @hingeVol, @coreVol] ]  }
     end
   end
 
   def bubble
     get_user
-    
+
     respond_to do |format|
       format.html
       format.json { render json: [  ] }
     end
   end
+
+
+
+private
+
+  def parse_info
+    @user = current_user
+    @workouts = @user.workouts.joins(:worksets).order(created_at: :desc).limit(5)
+    @workout_dates = @workouts.map{|w|[[w.created_at.month],[w.created_at.day],[w.created_at.year]]}
+
+    @exercises = Workset.order(:movement, :exercise).pluck(:exercise).uniq
+    @movements = Workset.order(:created_at).pluck(:movement).uniq
+    @pushVol = @workouts.where("worksets.movement = 'Push'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
+    @pullVol = @workouts.where("worksets.movement = 'Pull'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
+    @squatVol = @workouts.where("worksets.movement = 'Squat'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
+    @hingeVol = @workouts.where("worksets.movement = 'Hip Extension'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
+    @coreVol = @workouts.where("worksets.movement = 'Core Stability'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
+
+  end
+
 
 end
