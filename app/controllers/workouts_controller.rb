@@ -2,7 +2,6 @@ class WorkoutsController < ApplicationController
   def new
     @workout = Workout.new
     @workout.worksets.new
-    @worksets = Workset.all
   end
 
   def create
@@ -19,7 +18,15 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:id, :user_id, '_destroy', worksets_attributes: [:id, :exercise, :workout_id, :type, :weight, :repetitions, :rpe, '_destroy'])
+    params.require(
+                    :workout
+                  )
+                  .permit(
+                    :id,
+                    :user_id,
+                    '_destroy',
+                    worksets_attributes:  [:id, :user_id, :workout_id, :movement, :exercise, :weight, :reps, :rpe, '_destroy']
+                  )
   end
 
 end

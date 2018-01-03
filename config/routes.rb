@@ -11,9 +11,8 @@ Rails.application.routes.draw do
 
   resources :workouts
   resources :meals
-  resources :journals do
-    resources :comments, only: [:new, :create]
-  end
+  resources :journals
+  
 
 
   root to: 'welcome#index'
