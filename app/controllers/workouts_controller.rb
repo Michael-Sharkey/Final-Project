@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   def new
-    parse_exercises
+    parse_info
     @workout = Workout.new
     @workout.worksets.new
   end
@@ -30,6 +30,6 @@ class WorkoutsController < ApplicationController
                   )
   end
 
-  
+
 
 end

@@ -2,15 +2,27 @@
 <div class='nested-fields form-group'>
 
   <div class="form-row">
-    <%= f.input :movement, collection: @movements, input_html: {class: "movement form-control-sm"}, label: false %>
-    <%= f.input :exercise, collection: @exercises, input_html: {class: "movement form-control-sm"}, label: false %>
+    <div class="col">
+      <%= f.input :movement, collection: @movements, input_html: {class: "movement form-control-sm"}, label: false %>
+    </div>
+    <div class="col">
+      <%= f.input :exercise, collection: @exercises, input_html: {class: "movement form-control-sm"}, label: false %>
+    </div>
   </div>
 
   <div class="form-row">
-    <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
-    <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
-    <%= f.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
-    <button type="button" class="btn btn-danger btn-sm"><%= link_to_remove_association "Remove", f, class: 'buttons' %></button>
+    <div class="col">
+      <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
+    </div>
+    <div class="col">
+      <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
+    </div>
+    <div class="col">
+      <%= f.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-danger btn-sm"><%= link_to_remove_association "Remove", f, class: 'buttons' %></button>
+    </div>
   </div>
 
 </div>
