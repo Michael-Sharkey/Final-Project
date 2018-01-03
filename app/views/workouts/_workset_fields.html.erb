@@ -2,8 +2,8 @@
 <div class='nested-fields form-group'>
 
   <div class="form-row">
-    <%= f.input :movement, collection: Workset.order(:movement).pluck(:movement).uniq, input_html: {class: "movement form-control-sm"}, label: false %>
-    <%= f.input :exercise, collection: Workset.order(:movement, :exercise).pluck(:exercise), input_html: {class: "movement form-control-sm"}, label: false %>
+    <%= f.input :movement, collection: @movements, input_html: {class: "movement form-control-sm"}, label: false %>
+    <%= f.input :exercise, collection: @exercises, input_html: {class: "movement form-control-sm"}, label: false %>
   </div>
 
   <div class="form-row">
