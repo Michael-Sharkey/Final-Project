@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @active = @user.meals.last
     @meals = @user.meals.order(created_at: :desc).offset(1)
+    
   end
 
 
