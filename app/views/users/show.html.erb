@@ -5,12 +5,12 @@
 
 <div class="container" id="accordion1" role="tablist">
 
-<h3>Monitor</h3>
+<h3>Measure</h3>
   <div class="card">
     <div class="card-header" role="tab" id="heading1One">
       <h5 class="mb-0">
         <a class="collapsed" data-toggle="collapse" href="#collapse1One" aria-expanded="false" aria-controls="collapse1One">
-          Radar
+          Volume
         </a>
       </h5>
     </div>
@@ -21,22 +21,6 @@
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-header" role="tab" id="heading1Two">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" href="#collapse1Two" aria-expanded="false" aria-controls="collapse1Two">
-          Bubble
-        </a>
-      </h5>
-    </div>
-    <div id="collapse1Two" class="collapse" role="tabpanel" aria-labelledby="heading1Two" data-parent="#accordion1">
-      <div class="card-body">
-        <%= render 'graphs/bubble' %>
-      </div>
-    </div>
-  </div>
-
-  <h3>Eat</h3>
 
   <div class="card">
     <div class="card-header" role="tab" id="heading1Three">
@@ -65,7 +49,7 @@
     </div>
     <div id="collapse1Four" class="collapse" role="tabpanel" aria-labelledby="heading1Four" data-parent="#accordion1">
       <div class="card-body">
-        <%= render 'journals/index' %>
+        <%= render 'journals/new' %>
       </div>
     </div>
   </div>
