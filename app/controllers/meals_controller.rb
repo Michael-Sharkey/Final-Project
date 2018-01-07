@@ -1,8 +1,8 @@
 class MealsController < ApplicationController
+
   def index
-    get_user
-    @active = @user.meals.last
-    @meals = @user.meals.order(created_at: :desc).offset(1)
+    @active = current_user.meals.last
+    @meals = current_user.meals.order(created_at: :desc).offset(1)
   end
 
   def show

@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
-  before_action :get_user
 
   def index
   end
 
   def show
-    @active = @user.meals.last
-    @meals = @user.meals.order(created_at: :desc).offset(1)
+    @active = current_user.meals.last
+    @meals = current_user.meals.order(created_at: :desc).offset(1)
     @journal = Journal.new
-
   end
 
 
@@ -16,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user), notice: 'Updated your information'
+    if current_user.update(user_params)
+      redirect_to user_path(current_user), notice: 'Updated your information'
     else
       render 'edit'
     end
