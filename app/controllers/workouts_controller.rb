@@ -1,6 +1,5 @@
 class WorkoutsController < ApplicationController
   def new
-    parse_info
     @workout = Workout.new
     @workout.worksets.new
   end
@@ -26,7 +25,7 @@ class WorkoutsController < ApplicationController
                     :id,
                     :user_id,
                     '_destroy',
-                    worksets_attributes:  [:id, :user_id, :workout_id, :movement, :exercise, :weight, :reps, :rpe, '_destroy']
+                    worksets_attributes:  [:id, :workout_id, :movement_id, :exercise_id, :weight, :reps, :rpe, '_destroy']
                   )
   end
 
