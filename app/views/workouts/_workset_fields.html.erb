@@ -3,7 +3,7 @@
 
   <div class="form-row">
     <div class="col">
-      <%= f.input :movement_id, collection: Movement.order(:created_at).pluck(:pattern).uniq, input_html: {class: "movement form-control-sm"}, label: false %>
+      <%= f.input :movement_id, collection: Movement.order(:created_at), value_method: :id, label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
     </div>
     <div class="col">
       <%= f.input :exercise_id, collection: Movement.all, as: :grouped_select, group_method: :exercises, group_label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
