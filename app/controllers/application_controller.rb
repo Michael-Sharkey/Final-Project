@@ -2,11 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception, prepend: true
 
-  private
 
-  def get_user
-    @user = current_user
-  end
 
   # def parse_info
   #   @user = current_user
@@ -22,5 +18,5 @@ class ApplicationController < ActionController::Base
   #   @coreVol = @workouts.where("worksets.movement = 'Core Stability'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
   #
   # end
-
+  
 end
