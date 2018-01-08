@@ -31,7 +31,6 @@ a:link, a:visited, a:hover, a:active  {
     "main"
     "footer";
   transition: margin-left .5s;
-
 }
 
 header {
@@ -119,8 +118,47 @@ footer {
     transition: 0.5s;
   }
 
-  #closeNav {
+  #close-nav {
     height: 20px;
     width: 20px;
     border: 1px solid pink;
+  }
+
+  #close-new {
+    height: 20px;
+    width: 20px;
+    border: 1px solid pink;
+  }
+
+  .add-new {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+  }
+
+  #train {
+    background-color: purple;
+  }
+
+  #eat {
+    background-color: green;
+  }
+
+  #journal {
+    background-color: yellow;
+  }
+
+  #new-modal {
+      height: 100px;
+      width: 50px;
+      position: fixed;
+      z-index: 1;
+      bottom: 30px;
+      right: 20px;
+      background-color: #fff;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.5s;
   }
