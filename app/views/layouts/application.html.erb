@@ -31,7 +31,17 @@
       <%= yield %>
     </main>
 
-    <footer>Footer</footer>
+    <footer>
+      <% if signed_in? %>
+      <%= link_to "Workout", new_workout_path, class: "button" %>
+      <%= link_to "Eat", new_meal_path, class: "button" %>
+      <%= link_to "Dashboard".html_safe, user_path(current_user), class: "button" %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "button" %>
+    <% else %>
+      <%= link_to "Log In", new_user_session_path, class: "button" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+    <% end %>
+  </footer>
 
   </body>
 </html>
