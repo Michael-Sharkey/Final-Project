@@ -6,27 +6,58 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:700" rel="stylesheet">
+
   </head>
-
   <body>
-    <nav class="navbar navbar-light bg-light">
 
-      <ul class="nav">
-        <% if signed_in? %>
-          <li class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Eat", new_meal_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Dashboard".html_safe, user_path(current_user), class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "nav-link active" %></li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Log In", new_user_session_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
-        <% end %>
-      </ul>
+<div id="sideNav">
+  <nav>
+      <% if signed_in? %>
+        <%= link_to "Workout", new_workout_path, class: "button" %>
+        <%= link_to "Eat", new_meal_path, class: "button" %>
+        <%= link_to "Dashboard".html_safe, user_path(current_user), class: "button" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "button" %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path, class: "button" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+      <% end %>
+      <div id="close-nav" class="button">X</div>
+  </nav>
+</div>
 
-    </nav>
+<div id="mainArea">
+  <header>
+    <h1>BarBender</h1>
+  </header>
 
-    <p class="notice alert-success"><%= notice %></p>
+  <div id="nav-button"></div>
+
+
+
+  <p><%= notice %></p>
+
+  <main>
     <%= yield %>
+  </main>
+
+  <div id="new-button"></div>
+
+  <div id="new-modal" class="hidden">
+    <a href="#" class="add-new" id="train">Train</a>
+    <a href="#" class="add-new" id="eat">Train</a>
+    <a href="#" class="add-new" id="journal">Reflect</a>
+    <div id="close-new" class="button">X</div>
+  </div>
+
+  <footer>
+  <h1>Footer</h1>
+</footer>
+</div>
+
+
+
+
 
   </body>
 </html>

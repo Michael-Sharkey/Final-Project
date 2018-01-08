@@ -6,13 +6,14 @@ Rails.application.routes.draw do
 
   get'graphs/radar'
   get'graphs/bubble'
+  get'graphs/bar'
 
 
 
   resources :workouts
   resources :meals
   resources :journals
-  
+
 
 
   root to: 'welcome#index'

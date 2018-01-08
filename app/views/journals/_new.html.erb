@@ -1,12 +1,6 @@
 
-<div class="container">
   <%= simple_form_for @journal, url: journals_path do |j| %>
-<div class="form-row"><%= j.input :title %></div>
-  <div class="container">
+<%= j.input :title %>
     <%= j.input :entry, as: :trix_editor, class: "form-input" %>
-
-  </div>
-</div>
-<div class="form-row"><div class="col"><%= j.button :submit, class: "btn btn-primary" %></div></div>
+<%= j.button :submit, class: "btn btn-primary" %></div></div>
 <% end %>
-</div>
