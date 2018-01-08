@@ -22,7 +22,6 @@ a:link, a:visited, a:hover, a:active  {
 }
 
 
-
 body {
   background-color: rgba(0, 0, 0, 0.2);
   display: grid;
@@ -43,13 +42,16 @@ nav {
   grid-area: nav;
   background: red;
   display: grid;
+  grid-column-gap: 10px;
+  padding: 10px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 main {
   grid-area: main;
   background: green;
-  grid-gap: 1em;
+  grid-gap: 10px;
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
