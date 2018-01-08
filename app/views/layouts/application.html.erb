@@ -10,7 +10,11 @@
 
   <body>
 
-    <header>Header</header>
+    <header>
+      <h1>BarBender</h1>
+    </header>
+
+    <div class="nav-menu"></div>
 
     <nav>
         <% if signed_in? %>
@@ -22,7 +26,6 @@
           <%= link_to "Log In", new_user_session_path, class: "button" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
         <% end %>
-
     </nav>
 
     <p><%= notice %></p>
@@ -30,6 +33,8 @@
     <main>
       <%= yield %>
     </main>
+
+    <div class="new-menu"></div>
 
     <footer>
       <% if signed_in? %>
