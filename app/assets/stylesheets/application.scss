@@ -17,18 +17,59 @@
  *= require select2
  */
 
- @import "bootstrap";
-
 a:link, a:visited, a:hover, a:active  {
   text-decoration: none;
 }
 
-.buttons {
-  color: white;
-}
+
 
 body {
   background-color: rgba(0, 0, 0, 0.2);
-  background-position: center;
-  background-size: contain;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+}
+
+header {
+  grid-area: header;
+  background: blue;
+}
+
+nav {
+  grid-area: nav;
+  background: red;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+main {
+  grid-area: main;
+  background: green;
+  grid-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+footer {
+  grid-area: footer;
+  background: purple;
+}
+
+  .card {
+    height: 350px;
+    width: 100%;
+    border: 2px solid white;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+  color: white;
+  border: 2px solid white;
 }

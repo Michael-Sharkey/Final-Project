@@ -11,23 +11,13 @@
       </h5>
     </div>
 
-    <div id="collapseOne"  role="tabpanel" data-parent="#workout-accordion">
-      <div class="card-body form-group">
         <%= render 'workset_fields', f: workset %>
-      </div>
     <% end %>
-  <div class="card-body form-group">
-    <button type="button" class="btn btn-primary btn-sm"><%= link_to_add_association 'Add Set', f, :worksets, class: 'buttons' %></button>
-  </div>
+    <%= link_to_add_association 'Add Set', f, :worksets, class: 'buttons' %>
 
-  <div class="form-footer">
-    <div class="form-row">
-      <div class="col-4">
+
         <%= f.button :submit, "Finished!", class: "btn btn-success" %>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <% end %>
 </div>

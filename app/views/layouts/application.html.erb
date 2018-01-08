@@ -9,24 +9,29 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light">
 
-      <ul class="nav">
+    <header>Header</header>
+
+    <nav>
         <% if signed_in? %>
-          <li class="nav-item"><%= link_to "Workout", new_workout_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Eat", new_meal_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Dashboard".html_safe, user_path(current_user), class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "nav-link active" %></li>
+          <%= link_to "Workout", new_workout_path, class: "button" %>
+          <%= link_to "Eat", new_meal_path, class: "button" %>
+          <%= link_to "Dashboard".html_safe, user_path(current_user), class: "button" %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "button" %>
         <% else %>
-          <li class="nav-item"><%= link_to "Log In", new_user_session_path, class: "nav-link active" %></li>
-          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %></li>
+          <%= link_to "Log In", new_user_session_path, class: "button" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
         <% end %>
-      </ul>
 
     </nav>
 
-    <p class="notice alert-success"><%= notice %></p>
-    <%= yield %>
+    <p><%= notice %></p>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>Footer</footer>
 
   </body>
 </html>
