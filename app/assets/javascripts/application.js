@@ -11,11 +11,8 @@
 // about supported directives.
 
 //= require rails-ujs
-//= require turbolinks
 //= require trix
 //= require jquery3
 //= require Chart.bundle
-//= require chartkick
-//= require select2
 //= require cocoon
 //= require_tree .

@@ -1,32 +1,29 @@
 $(document).ready(function(){
 
   const navButton = document.getElementById('nav-button');
-  const closeNvg = document.getElementById('close-nav');
+  const sideNav = document.getElementById('sideNav');
+
   const newButton = document.getElementById('new-button');
-  const closeModal = document.getElementById('close-new');
   const newModal = document.getElementById('new-modal');
 
-  function openNav() {
-      document.getElementById("sideNav").style.width = "250px";
-      document.getElementById("mainArea").style.marginLeft = "250px";
+  function toggleNav() {
+    if (sideNav.style.width === "0px" || sideNav.style.width === "") {
+      sideNav.style.width = "200px";
+    } else if (sideNav.style.width === "200px") {
+      sideNav.style.width = "0";
+      };
   };
 
-  function closeNav() {
-      document.getElementById("sideNav").style.width = "0";
-      document.getElementById("mainArea").style.marginLeft = "0";
+  function toggleNew() {
+    if (newModal.style.height === "0px" || newModal.style.height === ""){
+      newModal.style.height = "100px";
+    } else if (newModal.style.height === "100px"){
+      newModal.style.height = "0px";
+    };
   };
 
-  function openNew() {
-      newModal.classList.remove('hidden');
-  };
 
-  function closeNew() {
-      newModal.classList.add('hidden');
-  };
-
-  navButton.addEventListener('click', openNav);
-  closeNvg.addEventListener('click', closeNav);
-  newButton.addEventListener('click', openNew);
-  closeModal.addEventListener('click', closeNew);
+  navButton.addEventListener('click', toggleNav);
+  newButton.addEventListener('click', toggleNew);
 
 });

@@ -14,14 +14,14 @@
  *= require_tree .
  *= require_self
  *= require trix
- *= require select2
  */
 
 $red: rgb(180, 30, 6);
 $blue: rgb(15, 71, 199);
 $yellow: rgb(238, 205, 23);
 $green: rgb(27, 103, 7);
-
+$headers: 'Kanit', sans-serif;
+$outShadow: 1px 1px 1px 1px;
 
 a:link, a:visited, a:hover, a:active  {
   text-decoration: none;
@@ -29,24 +29,21 @@ a:link, a:visited, a:hover, a:active  {
 
 
 #mainArea {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: white;
   display: grid;
   grid-gap: 5px;
   grid-template-areas:
     "header"
-    "main"
-    "footer";
-  transition: margin-left .5s;
+    "main";
 }
 
 header {
   grid-area: header;
   background: $red;
-  padding: 10px;
 
   h1 {
     float: right;
-    font-family: 'Kanit', sans-serif;
+    font-family: $headers
   }
 }
 
@@ -61,40 +58,37 @@ header {
   padding-top: 50px;
   padding-left: 50px;
   z-index: 3;
+  box-shadow: $outShadow;
 
 }
 
 main {
   grid-area: main;
-  background: green;
+  background: white;
   grid-gap: 10px;
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
-}
-
-footer {
-  grid-area: footer;
-  background: purple;
-  display: grid;
-  grid-column-gap: 10px;
-  padding: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
 }
 
   .card {
-    height: 350px;
+    height: auto;
     width: 100%;
-    border: 1px solid black;
     background: white;
+    box-shadow: $outShadow;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+
+    h5 {
+      margin: 5px;
+      font-family: $headers;
+    }
   }
 
   .button {
     color: white;
-    border: 2px solid white;
   }
 
   #new-button {
@@ -103,14 +97,12 @@ footer {
     width: 10px;
     background-color: $red;
     border-radius: 50%;
+    box-shadow: $outShadow;
     bottom: 20px;
     right: 20px;
     padding-top: 50px;
     padding-left: 50px;
-  }
-
-  .hidden {
-    display: none;
+    z-index: 3;
   }
 
   #sideNav {
@@ -120,16 +112,10 @@ footer {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.75);
     overflow-x: hidden;
-    padding-top: 60px;
+    padding-top: 100px;
     transition: 0.5s;
-  }
-
-  #close-nav {
-    height: 20px;
-    width: 20px;
-    border: 1px solid pink;
   }
 
   #close-new {
@@ -146,6 +132,17 @@ footer {
     color: white;
   }
 
+  #new-modal {
+      height: 0;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      bottom: 0px;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      transition: 0.5s;
+  }
+
   #train {
     background-color: purple;
   }
@@ -158,15 +155,6 @@ footer {
     background-color: yellow;
   }
 
-  #new-modal {
-      height: 100px;
-      width: 50px;
-      position: fixed;
-      z-index: 1;
-      bottom: 30px;
-      right: 20px;
-      background-color: #fff;
-      overflow-x: hidden;
-      padding-top: 60px;
-      transition: 0.5s;
+  tr:nth-child(even) {
+    background-color: rgba(180, 30, 6, 0.5);
   }

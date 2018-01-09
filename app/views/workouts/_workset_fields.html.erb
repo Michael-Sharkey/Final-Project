@@ -1,17 +1,12 @@
 
-<div class='nested-fields'>
+<div class='one-set nested-fields'>
+    <%= f.input :movement_id, collection: Movement.order(:created_at), value_method: :id, label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
+    <%= f.input :exercise_id, collection: Movement.order(:created_at), as: :grouped_select, group_method: :exercises, group_label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
 
-      <%= f.input :movement_id, collection: Movement.order(:created_at), value_method: :id, label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
+    <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
+    <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
+    <%= f.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
+    <%= link_to_remove_association "Remove", f, class: 'buttons' %>
 
-      <%= f.input :exercise_id, collection: Movement.order(:created_at), as: :grouped_select, group_method: :exercises, group_label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
-
-
-      <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
-      <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
-
-      <%= f.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
-
-  <%= link_to_remove_association "Remove", f, class: 'buttons' %>
-  
 
 </div>
