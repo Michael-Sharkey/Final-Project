@@ -14,7 +14,6 @@
  *= require_tree .
  *= require_self
  *= require trix
- *= require select2
  */
 
 $red: rgb(180, 30, 6);
@@ -70,11 +69,11 @@ main {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
 }
 
   .card {
-    height: 350px;
+    height: auto;
     width: 100%;
     background: white;
     box-shadow: $outShadow;
@@ -154,4 +153,8 @@ main {
 
   #journal {
     background-color: yellow;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(180, 30, 6, 0.5);
   }
