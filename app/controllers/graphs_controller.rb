@@ -1,7 +1,6 @@
 class GraphsController < ApplicationController
 
   def bar
-
   end
 
   def radar

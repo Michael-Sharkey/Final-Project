@@ -1,6 +1,6 @@
 <div class="card" id="new-workout">
   <h3>Train</h3>
-  <%= simple_form_for current_user.workouts.new do |f| %>
+  <%= simple_form_for @workout do |f| %>
     <%= f.simple_fields_for :worksets do |workset| %>
       <%= render 'workset_fields', f: workset %>
     <% end %>

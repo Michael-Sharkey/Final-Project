@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
 
   # def parse_info
-  #   @user = current_user
   #   @workouts = @user.workouts.joins(:worksets).order(created_at: :desc).limit(5)
   #   @workout_dates = @workouts.map{|w|[[w.created_at.month],[w.created_at.day],[w.created_at.year]]}
   #
@@ -18,5 +17,5 @@ class ApplicationController < ActionController::Base
   #   @coreVol = @workouts.where("worksets.movement = 'Core Stability'").joins(:worksets).pluck(:weight, :reps).map{|x,y| x * y}.reduce(:+)
   #
   # end
-  
+
 end
