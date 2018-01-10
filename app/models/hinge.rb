@@ -1,0 +1,2 @@
+class Hinge < Exercise
+end

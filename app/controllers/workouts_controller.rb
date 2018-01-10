@@ -1,12 +1,12 @@
 class WorkoutsController < ApplicationController
 
   def new
-    @workout = Workout.new
-    @workout.worksets.new
+    @workout = current_user.workouts.new
+    @workout.exercises.new
   end
 
   def create
-    @workout = Workout.new(workout_params)
+    @workout = current_user.workouts.new(workout_params)
     @workout.user_id = current_user.id
     if @workout.save
       redirect_to current_user, notice: 'Success!'
@@ -25,7 +25,7 @@ class WorkoutsController < ApplicationController
                     :id,
                     :user_id,
                     '_destroy',
-                    worksets_attributes:  [:id, :workout_id, :movement_id, :exercise_id, :weight, :reps, :rpe, '_destroy']
+                    exercises_attributes:  [:id, :workout_id, :type, :name, :weight, :reps, :rpe, '_destroy']
                   )
   end
 

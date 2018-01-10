@@ -3,7 +3,7 @@ class GraphsController < ApplicationController
   def bar
   end
 
-  def radar
+  def polar
 
     # parse_info
 
@@ -44,11 +44,18 @@ class GraphsController < ApplicationController
   end
 
   def bubble
-    get_user
-
     respond_to do |format|
       format.html
       format.json { render json: [  ] }
+    end
+  end
+
+  def radar
+    @workouts = current_user.workouts.most_recent(5)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @workouts }
     end
   end
 

@@ -7,15 +7,11 @@ end
 
 # Additional Gems
 gem 'jquery-rails'
-gem 'acts_as_votable', '~> 0.11.1'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem 'trix'
 gem 'simple_form'
-gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem "cocoon"
-gem "chartkick"
-gem "faker"
 
 
 
@@ -68,5 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-chartjs'
-  gem 'rails-assets-select2'
 end

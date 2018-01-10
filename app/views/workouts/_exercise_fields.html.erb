@@ -1,7 +1,7 @@
 
 <div class='one-set nested-fields'>
-    <%= f.input :movement_id, collection: Movement.order(:created_at), value_method: :id, label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
-    <%= f.input :exercise_id, collection: Movement.order(:created_at), as: :grouped_select, group_method: :exercises, group_label_method: :pattern, input_html: {class: "movement form-control-sm"}, label: false %>
+    <%= f.input :type, collection: ["Push", "Pull", "Squat", "Hinge", "Core"], label: false %>
+    <%= f.input :name, collection: Exercise.pluck(:name).uniq, label: false %>
 
     <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
     <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
