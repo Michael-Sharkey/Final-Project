@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106203017) do
+ActiveRecord::Schema.define(version: 20180106203010) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.integer "movement_id"
+    t.string "type"
+    t.integer "workout_id"
+    t.integer "weight"
+    t.integer "reps"
+    t.integer "rpe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movement_id"], name: "index_exercises_on_movement_id"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -40,12 +44,6 @@ ActiveRecord::Schema.define(version: 20180106203017) do
     t.datetime "photo_updated_at"
     t.text "notes"
     t.index ["user_id"], name: "index_meals_on_user_id"
-  end
-
-  create_table "movements", force: :cascade do |t|
-    t.string "pattern"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,20 +78,7 @@ ActiveRecord::Schema.define(version: 20180106203017) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "notes"
-  end
-
-  create_table "worksets", force: :cascade do |t|
-    t.integer "exercise_id"
-    t.integer "movement_id"
-    t.integer "workout_id"
-    t.integer "weight"
-    t.integer "reps"
-    t.integer "rpe"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exercise_id"], name: "index_worksets_on_exercise_id"
-    t.index ["movement_id"], name: "index_worksets_on_movement_id"
-    t.index ["workout_id"], name: "index_worksets_on_workout_id"
+    t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
 end

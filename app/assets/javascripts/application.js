@@ -13,6 +13,6 @@
 //= require rails-ujs
 //= require trix
 //= require jquery3
-//= require Chart.bundle
+//= require chartjs
 //= require cocoon
 //= require_tree .

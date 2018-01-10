@@ -14,48 +14,45 @@ $(document).ready(function(){
   });
 
 function error() {
-    console.log("Something went wrong!");
-}
+      console.log("Something went wrong!");
+  }
 
 function drawRadar(data) {
+console.log(data);
+var ctx = document.getElementById("radarGraph").getContext('2d');
 
-  var ctx = document.getElementById("radarGraph");
-  console.log(data);
-  var movements = data[0];
-  var volume = data[3];
-  // var label1 = `${data[1][0][0]}/${data[1][0][1]}/${data[1][0][2]}`;
-  // var label2 = `${data[1][1][0]}/${data[1][1][1]}/${data[1][1][2]}`;
-  // var label3 = `${data[1][2][0]}/${data[1][2][1]}/${data[1][2][2]}`;
-  // var label4 = `${data[1][3][0]}/${data[1][3][1]}/${data[1][3][2]}`;
-  // var label5 = `${data[1][4][0]}/${data[1][4][1]}/${data[1][4][2]}`;
+var radar = new Chart(ctx, {
+    type: 'radar',
 
-  var radar = new Chart(ctx, {
-      type: 'polarArea',
-      data: {
-        datasets: [{
-          data: volume,
-
-          labels: ['Push', 'Pull', 'Squat', 'Hip Extension', 'Core Stability'],
-          backgroundColor: [
-                'rgba(255, 99, 132, 0.5)',
-                'rgba(54, 162, 235, 0.5)',
-                'rgba(255, 206, 86, 0.5)',
-                'rgba(75, 192, 192, 0.5)',
-                'rgba(255, 159, 64, 0.5)'
+    data: {
+        labels: ["Push", "Pull", "Squat", "Hinge", "Core"],
+        datasets: [
+          //
+          {
+            label: 'Workout Date',
+            // data = average rpe by movement pattern
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-        }],
-      },
-      options: {
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        },
+      ]
+    },
 
-      },
-  });
+    options: {
+        scales: {
+            // yAxes: [{
+            //     ticks: {
+            //         beginAtZero:true
+            //     }
+            // }]
+        }
+    }
+});
 }
 
 });
