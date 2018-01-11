@@ -1,21 +1,19 @@
-<%= simple_form_for @workout do |f| %>
 
-<main>
-  <div class="card-form">
-    <p>Session Info</p>
-    <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
-  </div>
+<div class="workout-form">
+  <%= simple_form_for @workout do |f| %>
 
-  <%= f.simple_fields_for :exercises do |exercise| %>
-    <%= render 'exercise_fields', f: exercise %>
+    <div class="card-form">
+      <p>Session Info</p>
+      <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
+    </div>
+
+    <%= f.simple_fields_for :exercises do |exercise| %>
+      <%= render 'exercise_fields', f: exercise %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association '', f, :exercises, id: 'add-set' %>
+    </div>
+      <%= f.button :submit, "", id: 'finish' %>
   <% end %>
-
-  <div class="links">
-    <%= link_to_add_association '', f, :exercises, id: 'add-set' %>
-  </div>
-    <%= f.button :submit, "", id: 'finish' %>
-</main>
-
-
-
-<% end %>
+</div>

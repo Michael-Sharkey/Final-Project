@@ -64,4 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-chartjs'
+  gem 'rails-assets-select2'
 end

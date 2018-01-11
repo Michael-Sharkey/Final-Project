@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
   const navButton = document.getElementById('nav-button');
   const sideNav = document.getElementById('sideNav');

@@ -1,7 +1,7 @@
 
 <div class='card-form nested-fields'>
-    <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, label: false %>
-    <%= f.input :name, collection: Exercise.pluck(:name).uniq, label: false %>
+    <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, input_html: {class: 'pattern'}, label: false %>
+    <%= f.input :name, collection: Exercise.pluck(:name).uniq, input_html: {class: 'exercise'}, label: false %>
 
     <%= f.input :weight, placeholder: 'Weight', label: false %>
     <%= f.input :reps, placeholder: 'Reps', label: false %>
