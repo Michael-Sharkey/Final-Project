@@ -1,11 +1,23 @@
 $(document).on('turbolinks:load', function() {
 
-  $('.pattern').select2();
-  $('.exercise').select2();
+  $('.pattern-fields').select2({
+    width: '100%',
+    placeholder: 'Movement Pattern'
+  });
+  $('.exercise-fields').select2({
+    width: '100%',
+    placeholder: 'Exercise'
+  });
 
   $('main').on('cocoon:after-insert', function(){
-    $('.pattern').select2();
-    $('.exercise').select2();
+    $('.pattern-fields').select2({
+      width: '100%',
+      placeholder: 'Movement Pattern'
+    });
+    $('.exercise-fields').select2({
+      width: '100%',
+      placeholder: 'Exercise'
+    });
   })
 
 

@@ -1,12 +1,7 @@
+<div class="card-form">
 
-<div class="workout-form">
   <%= simple_form_for @workout do |f| %>
-
-    <div class="card-form">
-      <p>Session Info</p>
-      <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
-    </div>
-
+  <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
     <%= f.simple_fields_for :exercises do |exercise| %>
       <%= render 'exercise_fields', f: exercise %>
     <% end %>
