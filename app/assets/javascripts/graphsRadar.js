@@ -110,14 +110,9 @@ $(document).ready(function() {
       },
         ]
       },
-
       options: {
-        scales: {
-          // yAxes: [{
-          //     ticks: {
-          //         beginAtZero:true
-          //     }
-          // }]
+        legend: {
+          position: 'bottom'
         }
       }
     });
