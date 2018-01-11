@@ -27,7 +27,6 @@ a:link, a:visited, a:hover, a:active  {
   text-decoration: none;
 }
 
-
 #mainArea {
   background-color: white;
   display: grid;
@@ -85,16 +84,6 @@ main {
       margin: 5px;
       font-family: $headers;
     }
-  }
-
-  .card-form {
-    height: auto;
-    width: 100%;
-    background: white;
-    box-shadow: $outShadow;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
   }
 
   .button {
@@ -165,34 +154,4 @@ main {
     background-color: yellow;
   }
 
-  tr:nth-child(even) {
-    background-color: rgba(180, 30, 6, 0.5);
-  }
-
-  #add-set {
-    position: fixed;
-    height: 8px;
-    width: 8px;
-    background-color: $blue;
-    border-radius: 50%;
-    box-shadow: $outShadow;
-    bottom: 20px;
-    lef: 20px;
-    padding-top: 50px;
-    padding-left: 50px;
-    z-index: 3;
-  }
-
-  #finish {
-    position: fixed;
-    height: 15px;
-    width: 15px;
-    background-color: $green;
-    border-radius: 50%;
-    box-shadow: $outShadow;
-    bottom: 20px;
-    left: 50%;
-    padding-top: 50px;
-    padding-left: 50px;
-    z-index: 3;
-  }
+  

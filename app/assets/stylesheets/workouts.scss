@@ -1,3 +1,65 @@
 // Place all the styles related to the Workouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: rgb(180, 30, 6);
+$blue: rgb(15, 71, 199);
+$yellow: rgb(238, 205, 23);
+$green: rgb(27, 103, 7);
+$headers: 'Kanit', sans-serif;
+$outShadow: 1px 1px 1px 1px;
+
+a:link, a:visited, a:hover, a:active  {
+  text-decoration: none;
+}
+
+
+.card-form {
+  height: auto;
+  width: 100%;
+  background: white;
+  box-shadow: $outShadow;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+#workout-date {
+  position: fixed;
+  height: auto;
+  width: auto;
+  box-shadow: $outShadow;
+  top: 150px;
+  right: 20px;
+  padding-top: 50px;
+  padding-right: 50px;
+  z-index: 3;
+}
+
+#add-set {
+  position: fixed;
+  height: 8px;
+  width: 8px;
+  background-color: $blue;
+  border-radius: 50%;
+  box-shadow: $outShadow;
+  bottom: 20px;
+  left: 20px;
+  padding-top: 50px;
+  padding-left: 50px;
+  z-index: 3;
+}
+
+#finish {
+  position: fixed;
+  height: 15px;
+  width: 15px;
+  background-color: $green;
+  border-radius: 50%;
+  box-shadow: $outShadow;
+  bottom: 20px;
+  left: 50%;
+  padding-top: 50px;
+  padding-left: 50px;
+  z-index: 3;
+}

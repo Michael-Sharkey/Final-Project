@@ -1,5 +1,6 @@
 
-<div class='nested-fields'>
+<div class='card-form nested-fields'>
+  <h5>Set #</h5>
     <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, label: false %>
     <%= f.input :name, collection: Exercise.pluck(:name).uniq, label: false %>
 
