@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(version: 20180106203010) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "pattern"
     t.integer "workout_id"
     t.integer "weight"
     t.integer "reps"
-    t.integer "rpe"
+    t.integer "intensity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["workout_id"], name: "index_exercises_on_workout_id"

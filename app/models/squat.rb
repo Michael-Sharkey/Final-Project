@@ -1,2 +1,0 @@
-class Squat < Exercise
-end

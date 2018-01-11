@@ -69,7 +69,7 @@ main {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 550px));
 }
 
   .card {

@@ -25,7 +25,7 @@ class WorkoutsController < ApplicationController
                     :id,
                     :user_id,
                     '_destroy',
-                    exercises_attributes:  [:id, :workout_id, :type, :name, :weight, :reps, :rpe, '_destroy']
+                    exercises_attributes:  [:id, :workout_id, :pattern, :name, :weight, :reps, :intensity, '_destroy']
                   )
   end
 

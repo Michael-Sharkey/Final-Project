@@ -1,12 +1,10 @@
 
 <div class='one-set nested-fields'>
-    <%= f.input :type, collection: ["Push", "Pull", "Squat", "Hinge", "Core"], label: false %>
+    <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, label: false %>
     <%= f.input :name, collection: Exercise.pluck(:name).uniq, label: false %>
 
     <%= f.input :weight, placeholder: 'Weight', input_html: {class: "form-control-sm"}, label: false %>
     <%= f.input :reps, placeholder: 'Reps', input_html: {class: "form-control-sm"}, label: false %>
-    <%= f.input :rpe, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
+    <%= f.input :intensity, placeholder: 'RPE', input_html: {class: "form-control-sm"}, label: false %>
     <%= link_to_remove_association "Remove", f, class: 'buttons' %>
-
-
 </div>

@@ -23,11 +23,7 @@ function drawPolar(data) {
   console.log(data);
   var movements = data[0];
   var volume = data[3];
-  // var label1 = `${data[1][0][0]}/${data[1][0][1]}/${data[1][0][2]}`;
-  // var label2 = `${data[1][1][0]}/${data[1][1][1]}/${data[1][1][2]}`;
-  // var label3 = `${data[1][2][0]}/${data[1][2][1]}/${data[1][2][2]}`;
-  // var label4 = `${data[1][3][0]}/${data[1][3][1]}/${data[1][3][2]}`;
-  // var label5 = `${data[1][4][0]}/${data[1][4][1]}/${data[1][4][2]}`;
+
 
   var radar = new Chart(ctx, {
       type: 'polarArea',
@@ -59,3 +55,19 @@ function drawPolar(data) {
 }
 
 });
+
+
+// for (let i = 0; i < data.length; i++) {
+//   for (let j = 0; j < data[i].exercises.length; j++){
+//     if (data[i].exercises[j].pattern === "Push") {
+//       var x = [data[i].exercises[j].weight * data[i].exercises[j].reps, data[i].exercises[j].pattern, data[i].exercises[j].workout_id];
+//       console.log(x);
+//     }
+//   }
+// }
+
+// var vol0 = volPerSet[0].
+//
+// for (let i = 0; i < volPerSet; i++) {
+//
+// }

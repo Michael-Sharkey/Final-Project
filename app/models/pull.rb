@@ -1,2 +1,0 @@
-class Pull < Exercise
-end

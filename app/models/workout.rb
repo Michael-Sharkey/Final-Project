@@ -6,11 +6,7 @@ class Workout < ApplicationRecord
 
   # methods
   def self.most_recent(integer)
-    order(created_at: :desc).limit(integer).uniq
-  end
-
-  def self.movement_pattern(movement)
-    joins(:worksets).where("worksets.movement_id = '?'", movement)
+    order(created_at: :desc).limit(integer).to_json(include: :exercises)
   end
 
 
