@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  
+// $(document).ready(function() {
+
 //   var movementFields = document.getElementsByClassName('movement');
 //   var exerciseFields = document.getElementsByClassName('exercise');
 //
@@ -20,4 +20,4 @@ $(document).ready(function() {
 //   };
 //
 //
-  })
+  // })

@@ -79,7 +79,7 @@ main {
     box-shadow: $outShadow;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: scroll;
 
     h5 {
       margin: 5px;

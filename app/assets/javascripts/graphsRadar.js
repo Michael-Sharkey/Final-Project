@@ -18,25 +18,25 @@ $(document).ready(function() {
   }
 
   function drawRadar(data) {
-
-    var volPerSet = data.map(x => x.exercises.map(y => [y.pattern, y.weight * y.reps, y.id]));
+    var volPerSet = data.map(x => x.exercises.map(y => [y.pattern, y.weight * y.reps]));
+    console.log(volPerSet);
+    console.log(volPerSet[1]);
 
     function patternVolume(arr) {
       let vol = [0, 0, 0, 0, 0];
       for (let i = 0; i < arr.length; i++) {
-        if (arr[0][0] === "Push") {
-          vol[0] += arr[0][1];
-        } else if (arr[0][0] === "Pull") {
-          vol[1] += arr[0][1];
-        } else if (arr[0][0] === "Squat") {
-          vol[2] += arr[0][1];
-        } else if (arr[0][0] === "Hinge") {
-          vol[3] += arr[0][1];
-        } else if (arr[0][0] === "Core") {
-          vol[4] += arr[0][1];
+        if (arr[i][0] === "Push") {
+          vol[0] += arr[i][1];
+        } else if (arr[i][0] === "Pull") {
+          vol[1] += arr[i][1];
+        } else if (arr[i][0] === "Squat") {
+          vol[2] += arr[i][1];
+        } else if (arr[i][0] === "Hinge") {
+          vol[3] += arr[i][1];
+        } else if (arr[i][0] === "Core") {
+          vol[4] += arr[i][1];
         };
-      }
-      return vol;
+      } return vol;
     }
 
     var workout0 = patternVolume(volPerSet[0]);
@@ -44,7 +44,6 @@ $(document).ready(function() {
     var workout2 = patternVolume(volPerSet[2]);
     var workout3 = patternVolume(volPerSet[3]);
     var workout4 = patternVolume(volPerSet[4]);
-    console.log(workout0);
 
     var ctx = document.getElementById("radarGraph").getContext('2d');
     var radar = new Chart(ctx, {
@@ -55,7 +54,7 @@ $(document).ready(function() {
         datasets: [
           //
           {
-            label: volPerSet[0][2],
+            label: 'A',
             data: workout0,
             backgroundColor: [
               'rgba(180, 30, 6, 0.2)'
@@ -66,7 +65,7 @@ $(document).ready(function() {
             borderWidth: 2
           },
           {
-            label: volPerSet[1][2],
+            label: 'B',
             data: workout1,
             backgroundColor: [
               'rgba(15, 71, 199, 0.2)'
@@ -77,7 +76,7 @@ $(document).ready(function() {
             borderWidth: 2
           },
           {
-            label: volPerSet[2][2],
+            label: 'C',
             data: workout2,
             backgroundColor: [
               'rgba(238, 205, 23, 0.2)'
@@ -88,7 +87,7 @@ $(document).ready(function() {
             borderWidth: 2
           },
           {
-            label: volPerSet[3][2],
+            label: 'D',
             data: workout3,
             backgroundColor: [
                 'rgba(27, 103, 7, 0.2)'
@@ -99,7 +98,7 @@ $(document).ready(function() {
             borderWidth: 2
         },
         {
-          label: volPerSet[4][2],
+          label: 'F',
           data: workout4,
           backgroundColor: [
               'rgba(88, 16, 137, 0.2)'

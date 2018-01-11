@@ -1,5 +1,5 @@
 class Exercise < ApplicationRecord
-  belongs_to :workout, optional: true
+  belongs_to :workout
 
   # scope :pushes, ->           { (where(movement_id: 1)) }
   # scope :pull, ->           { (where(movement_id: 2)) }
