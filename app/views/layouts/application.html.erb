@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <div id="sideNav">
+    <div id="new-modal">
       <nav>
         <% if signed_in? %>
           <%= link_to "Workout", new_workout_path, class: "button" %>
@@ -23,13 +23,6 @@
           <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
         <% end %>
       </nav>
-    </div>
-
-    <div id="new-modal">
-      <a href="#" class="add-new" id="train">Train</a>
-      <a href="#" class="add-new" id="eat">Train</a>
-      <a href="#" class="add-new" id="journal">Reflect</a>
-      <div id="close-new" class="button">X</div>
     </div>
 
     <div id="mainArea">

@@ -17,6 +17,10 @@
  *= require select2
  */
 
+* {
+  box-sizing: border-box;
+}
+
 $red: rgb(180, 30, 6);
 $blue: rgb(15, 71, 199);
 $yellow: rgb(238, 205, 23);
@@ -26,6 +30,10 @@ $outShadow: 1px 1px 1px 1px;
 
 a:link, a:visited, a:hover, a:active  {
   text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }
 
 #mainArea {

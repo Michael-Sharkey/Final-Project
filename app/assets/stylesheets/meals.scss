@@ -1,3 +1,86 @@
 // Place all the styles related to the Meals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: rgb(180, 30, 6);
+$blue: rgb(15, 71, 199);
+$yellow: rgb(238, 205, 23);
+$green: rgb(27, 103, 7);
+$headers: 'Kanit', sans-serif;
+$outShadow: 1px 1px 1px 1px;
+
+@mixin slide-chevrons {
+  cursor: pointer;
+  width: auto;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.card-meal {
+    height: auto;
+    width: 350px;
+    background: white;
+    box-shadow: $outShadow;
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(11, 1fr);
+    overflow: hide;
+}
+
+.prev {
+  @include slide-chevrons;
+  grid-area: 5 / 2 / span 2 / span 1;
+
+  &:hover {
+    color: rgba(0,0,0,0.8);
+  }
+}
+
+.next {
+  @include slide-chevrons;
+  grid-area: 5 / 10 / span 2 / span 1;
+
+  &:hover {
+    color: rgba(0,0,0,0.5);
+  }
+}
+
+.box {
+  grid-area: 9 / 5 / span 1 / span 3;
+}
+
+.plusMinus {
+  cursor:pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .plusMinus:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

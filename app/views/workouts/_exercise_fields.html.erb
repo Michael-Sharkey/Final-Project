@@ -5,11 +5,11 @@
   </div>
 
   <div class="movement">
-    <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, input_html: {class: 'form-input pattern-fields'}, label: false %>
+    <%= f.input :pattern, collection: Exercise.order(:pattern).pluck(:pattern).uniq, input_html: {class: 'form-input pattern-fields'}, label: false %>
   </div>
 
   <div class="exercise">
-    <%= f.input :name, collection: Exercise.pluck(:name).uniq, input_html: {class: 'form-input exercise-fields'}, label: false %>
+    <%= f.input :name, collection: Exercise.group(:pattern, :name), input_html: {class: 'form-input exercise-fields'}, label: false %>
   </div>
 
   <div class="weight">
