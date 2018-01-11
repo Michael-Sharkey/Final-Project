@@ -1,5 +1,10 @@
 <%= simple_form_for @workout do |f| %>
-<div id="workout-date"><%= f.input :workout_date, as: :datetime, label: false %></div>
+
+<main>
+  <div class="card-form">
+    <p>Session Info</p>
+    <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
+  </div>
 
   <%= f.simple_fields_for :exercises do |exercise| %>
     <%= render 'exercise_fields', f: exercise %>
@@ -9,5 +14,8 @@
     <%= link_to_add_association '', f, :exercises, id: 'add-set' %>
   </div>
     <%= f.button :submit, "", id: 'finish' %>
+</main>
+
+
 
 <% end %>

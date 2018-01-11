@@ -24,18 +24,6 @@ a:link, a:visited, a:hover, a:active  {
   overflow: auto;
 }
 
-#workout-date {
-  position: fixed;
-  height: auto;
-  width: auto;
-  box-shadow: $outShadow;
-  top: 150px;
-  right: 20px;
-  padding-top: 50px;
-  padding-right: 50px;
-  z-index: 3;
-}
-
 #add-set {
   position: fixed;
   height: 8px;
@@ -52,14 +40,17 @@ a:link, a:visited, a:hover, a:active  {
 
 #finish {
   position: fixed;
-  height: 15px;
-  width: 15px;
+  height: 120px;
+  width: 120px;
   background-color: $green;
   border-radius: 50%;
   box-shadow: $outShadow;
-  bottom: 20px;
-  left: 50%;
-  padding-top: 50px;
-  padding-left: 50px;
+  bottom: 100px;
+  right: 20px;
   z-index: 3;
+}
+
+#session-info {
+  color: blue;
+  font-family: $headers;
 }

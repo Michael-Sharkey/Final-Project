@@ -41,24 +41,9 @@ header {
   background: $red;
 
   h1 {
-    float: right;
+    float: left;
     font-family: $headers
   }
-}
-
-#nav-button {
-  position: fixed;
-  height: 10px;
-  width: 10px;
-  background: $blue;
-  border-radius: 50%;
-  top: 25px;
-  left: 25px;
-  padding-top: 50px;
-  padding-left: 50px;
-  z-index: 3;
-  box-shadow: $outShadow;
-
 }
 
 main {
@@ -104,32 +89,6 @@ main {
     z-index: 3;
   }
 
-  #sideNav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    overflow-x: hidden;
-    padding-top: 100px;
-    transition: 0.5s;
-  }
-
-  #close-new {
-    height: 20px;
-    width: 20px;
-    border: 1px solid pink;
-  }
-
-  .add-new {
-    height: 7px;
-    width: 7px;
-    border-radius: 50%;
-    border: 2px solid white;
-    color: white;
-  }
 
   #new-modal {
       height: 0;
@@ -153,5 +112,3 @@ main {
   #journal {
     background-color: yellow;
   }
-
-  
