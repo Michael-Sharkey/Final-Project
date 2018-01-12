@@ -1,73 +1,67 @@
-// $(document).ready(function(){
-//
-//   $.ajax({
-//     type: 'GET',
-//     contentType: 'application/json; charset=utf-8',
-//     url: '../graphs/polar',
-//     dataType: 'json',
-//     success: function(data){
-//       drawPolar(data);
-//       },
-//     failure: function(result){
-//       error();
-//       }
-//   });
-//
-// function error() {
-//     console.log("Something went wrong!");
-// }
-//
-// function drawPolar(data) {
-//
-//   var ctx = document.getElementById("polarGraph");
-//   console.log(data);
-//   var movements = data[0];
-//   var volume = data[3];
-//
-//
-//   var radar = new Chart(ctx, {
-//       type: 'polarArea',
-//       data: {
-//         datasets: [{
-//           data: volume,
-//
-//           labels: ['Push', 'Pull', 'Squat', 'Hip Extension', 'Core Stability'],
-//           backgroundColor: [
-//                 'rgba(255, 99, 132, 0.5)',
-//                 'rgba(54, 162, 235, 0.5)',
-//                 'rgba(255, 206, 86, 0.5)',
-//                 'rgba(75, 192, 192, 0.5)',
-//                 'rgba(255, 159, 64, 0.5)'
-//             ],
-//             borderColor: [
-//                   'rgba(255, 99, 132, 1)',
-//                   'rgba(54, 162, 235, 1)',
-//                   'rgba(255, 206, 86, 1)',
-//                   'rgba(75, 192, 192, 1)',
-//                   'rgba(255, 159, 64, 1)'
-//               ],
-//         }],
-//       },
-//       options: {
-//
-//       },
-//   });
-// }
-//
-// });
+$(document).on('turbolinks:load', function(){
 
+  $.ajax({
+    type: 'GET',
+    contentType: 'application/json; charset=utf-8',
+    url: '../graphs/polar',
+    dataType: 'json',
+    success: function(data){
+      drawPolar(data);
+      },
+    failure: function(result){
+      error();
+      }
+  });
 
-// for (let i = 0; i < data.length; i++) {
-//   for (let j = 0; j < data[i].exercises.length; j++){
-//     if (data[i].exercises[j].pattern === "Push") {
-//       var x = [data[i].exercises[j].weight * data[i].exercises[j].reps, data[i].exercises[j].pattern, data[i].exercises[j].workout_id];
-//       console.log(x);
-//     }
-//   }
-// }
+function error() {
+    console.log("Something went wrong!");
+}
 
-// var vol0 = volPerSet[0].
-//
-// for (let i = 0; i < volPerSet; i++) {
-//
-// }
+function drawPolar(data) {
+  console.log(data);
+
+  var pushVol = data.filter(y => y.pattern === 'Push').map(x => x.weight * x.reps).reduce( (a, b) => a + b);
+  var pullVol = data.filter(y => y.pattern === 'Pull').map(x => x.weight * x.reps).reduce( (a, b) => a + b);
+  var squatVol = data.filter(y => y.pattern === 'Squat').map(x => x.weight * x.reps).reduce( (a, b) => a + b);
+  var hingeVol = data.filter(y => y.pattern === 'Hinge').map(x => x.weight * x.reps).reduce( (a, b) => a + b);
+  var coreVol = data.filter(y => y.pattern === 'Core').map(x => x.weight * x.reps).reduce( (a, b) => a + b);
+  var dataSet = [pushVol, pullVol, squatVol, hingeVol, coreVol];
+
+  var ctx = document.getElementById("polarGraph");
+
+  var radar = new Chart(ctx, {
+      type: 'polarArea',
+      data: {
+        datasets: [{
+          data:   dataSet,
+          labels:          [
+                            "Push",
+                            "Pull",
+                            "Squat",
+                            "Hinge",
+                            "Core"
+          ],
+          backgroundColor: [
+                            'rgba(180, 30, 6, 0.2)',
+                            'rgba(15, 71, 199, 0.2)',
+                            'rgba(238, 205, 23, 0.2)',
+                            'rgba(27, 103, 7, 0.2)',
+                            'rgba(88, 16, 137, 0.2)'
+          ],
+          borderColor:     [
+                            'rgba(180, 30, 6, 1)',
+                            'rgba(15, 71, 199, 1)',
+                            'rgba(238, 205, 23, 1)',
+                            'rgba(27, 103, 7, 1)',
+                            'rgba(88, 16, 137, 1)'
+          ],
+          borderWidth: 2 
+        }],
+      },
+      options: {
+
+      },
+  });
+};
+
+})
