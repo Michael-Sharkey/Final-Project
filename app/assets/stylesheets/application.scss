@@ -26,7 +26,7 @@ $blue: rgb(15, 71, 199);
 $yellow: rgb(238, 205, 23);
 $green: rgb(27, 103, 7);
 $headers: 'Kanit', sans-serif;
-$outShadow: 1px 1px 1px 1px;
+$outShadow: 1px 2px 2px 1px;
 
 a:link, a:visited, a:hover, a:active  {
   text-decoration: none;
@@ -120,4 +120,16 @@ main {
 
   #journal {
     background-color: yellow;
+  }
+
+  .card-meal {
+      height: auto;
+      width: auto;
+      background: white;
+      box-shadow: $outShadow;
+      display: grid;
+      grid-template-rows: repeat(9, 1fr);
+      grid-template-columns: repeat(9, 1fr);
+      overflow: hide;
+      z-index: 1;
   }

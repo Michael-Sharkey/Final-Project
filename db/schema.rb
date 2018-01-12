@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 20180106203010) do
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.boolean "good"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
-    t.text "notes"
     t.index ["user_id"], name: "index_meals_on_user_id"
   end
 

@@ -1,8 +1,6 @@
 
-
-
 <%= simple_form_for current_user.meals.new, url: meals_path do |m| %>
-<%= m.input :photo, as: :file, input_html:{class: "btn btn-primary"}, label: false %>
-<div class="form-row">
+<%= m.input :photo, as: :file, input_html:{}, label: false %>
+<%= m.input :good, as: :boolean, label: false, hint: "Good for you? Be honest." %>
 <%= m.button :submit, "Let's Eat!", class: "btn btn-primary" %>
 <% end %>

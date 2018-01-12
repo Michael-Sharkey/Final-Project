@@ -19,8 +19,6 @@ $(document).on('turbolinks:load', function() {
 
   function drawRadar(data) {
     var volPerSet = data.map(x => x.exercises.map(y => [y.pattern, y.weight * y.reps]));
-    console.log(volPerSet);
-    console.log(volPerSet[1]);
 
     function patternVolume(arr) {
       let vol = [0, 0, 0, 0, 0];

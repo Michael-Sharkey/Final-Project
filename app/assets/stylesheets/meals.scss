@@ -7,41 +7,43 @@ $blue: rgb(15, 71, 199);
 $yellow: rgb(238, 205, 23);
 $green: rgb(27, 103, 7);
 $headers: 'Kanit', sans-serif;
-$outShadow: 1px 1px 1px 1px;
+$outShadow: 1px 2px 2px 1px;
 
 @mixin slide-chevrons {
   cursor: pointer;
   width: auto;
-  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: rgba(0, 0, 0, 0.2);
   font-weight: bold;
   font-size: 36px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
 }
 
-.card-meal {
-    height: auto;
-    width: 350px;
-    background: white;
-    box-shadow: $outShadow;
-    display: grid;
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-columns: repeat(11, 1fr);
-    overflow: hide;
+#meal-carousel {
+  grid-area: 1 / 1 / span 9 / span 9;
+  z-index: 2;
 }
 
-.prev {
+.meal-pics {
+  width: 100%;
+}
+
+
+#prev {
   @include slide-chevrons;
-  grid-area: 5 / 2 / span 2 / span 1;
+  grid-area: 5 / 1 / span 2 / span 1;
+  z-index: 3;
 
   &:hover {
     color: rgba(0,0,0,0.8);
   }
 }
 
-.next {
+#next {
   @include slide-chevrons;
-  grid-area: 5 / 10 / span 2 / span 1;
+  grid-area: 5 / 11 / span 2 / span 1;
+  z-index: 3;
 
   &:hover {
     color: rgba(0,0,0,0.5);
@@ -50,6 +52,7 @@ $outShadow: 1px 1px 1px 1px;
 
 .box {
   grid-area: 9 / 5 / span 1 / span 3;
+  z-index: 3;
 }
 
 .plusMinus {

@@ -3,4 +3,8 @@ class Meal < ApplicationRecord
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
+
+  def self.to_slide_info
+    order(created_at: :desc).map{|x|[x.photo.url, x.created_at.to_date, x.good]}.to_json
+  end
 end

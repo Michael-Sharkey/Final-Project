@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get'graphs/bubble'
   get'graphs/bar'
 
+  get'meals/slides'
 
 
   resources :workouts
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'welcome#index'
+  root to: 'users#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
