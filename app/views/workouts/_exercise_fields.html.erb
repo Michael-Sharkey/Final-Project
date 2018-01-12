@@ -1,10 +1,28 @@
 
-<div class='nested-fields'>
-    <%= f.input :pattern, collection: Exercise.pluck(:pattern).uniq, label: false %>
-    <%= f.input :name, collection: Exercise.pluck(:name).uniq, label: false %>
+<div class='nested-fields form-fields'>
+  <div class="remove">
+    <%= link_to_remove_association "X", f, input_html: {} %>
+  </div>
 
-    <%= f.input :weight, placeholder: 'Weight', label: false %>
-    <%= f.input :reps, placeholder: 'Reps', label: false %>
-    <%= f.input :intensity, placeholder: 'RPE', label: false %>
-    <%= link_to_remove_association "Remove", f %>
+  <div class="movement">
+    <%= f.input :pattern, collection: Exercise.order(:pattern).pluck(:pattern).uniq, input_html: {class: 'form-input pattern-fields'}, label: false %>
+  </div>
+
+  <div class="exercise">
+    <%= f.input :name, collection: Exercise.group(:pattern, :name), input_html: {class: 'form-input exercise-fields'}, label: false %>
+  </div>
+
+  <div class="weight">
+    <%= f.input :weight, placeholder: 'Weight', input_html: {class: 'form-input weight-fields'}, label: false %>
+  </div>
+
+  <div class="reps">
+    <%= f.input :reps, placeholder: 'Reps', input_html: {class: 'form-input rep-fields'}, label: false %>
+  </div>
+
+  <div class="intensity">
+    <%= f.input :intensity, placeholder: 'Intensity', input_html: {class: 'form-input intensity-fields'}, label: false %>
+  </div>
+
+
 </div>

@@ -1,8 +1,16 @@
 class MealsController < ApplicationController
 
   def index
-    @active = current_user.meals.last
-    @meals = current_user.meals.order(created_at: :desc).offset(1)
+    @meal = Meal.first
+  end
+
+
+  def slides
+    @meals = current_user.meals.to_slide_info
+    respond_to do |format|
+      format.html
+      format.json { render json: @meals }
+    end
   end
 
   def show

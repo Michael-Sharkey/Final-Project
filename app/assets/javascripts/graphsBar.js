@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
 
   var ctx = document.getElementById("barGraph").getContext('2d');

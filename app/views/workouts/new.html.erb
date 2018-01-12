@@ -1,12 +1,14 @@
-<div class="card" id="new-workout">
-  <h5>Train</h5>
+<div class="card-workout">
+
   <%= simple_form_for @workout do |f| %>
+  <%= f.input :workout_date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
     <%= f.simple_fields_for :exercises do |exercise| %>
       <%= render 'exercise_fields', f: exercise %>
     <% end %>
+
     <div class="links">
-      <%= link_to_add_association 'Add Set', f, :exercises %>
+      <%= link_to_add_association '', f, :exercises, id: 'add-set' %>
     </div>
-  <%= f.button :submit, "Finished!" %>
+      <%= f.button :submit, "", id: 'finish' %>
   <% end %>
 </div>
