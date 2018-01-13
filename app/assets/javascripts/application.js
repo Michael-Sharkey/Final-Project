@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require trix
 //= require jquery3
+//= require momentjs
 //= require chartjs
 //= require select2
 //= require cocoon

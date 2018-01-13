@@ -12,12 +12,14 @@ class GraphsController < ApplicationController
     end
   end
 
-  # def bubble
-  #   respond_to do |format|
-  #     format.html
-  #     format.json { render json: [  ] }
-  #   end
-  # end
+  def bubble
+    @patterns = current_user.exercises.cumulative_volume
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @patterns }
+    end
+  end
 
   def radar
     @workouts = current_user.workouts.most_recent(5)
