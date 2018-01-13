@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get'graphs/polar'
   get'graphs/radar'
   get'graphs/bubble'
-  get'graphs/bar'
 
   get'meals/slides'
 
