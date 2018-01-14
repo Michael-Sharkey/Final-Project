@@ -4,9 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @active = current_user.meals.last
-    @meals = current_user.meals.order(created_at: :desc).offset(1)
-    @journal = Journal.new
   end
 
 

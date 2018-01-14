@@ -19,13 +19,6 @@ $(document).on('turbolinks:load', function() {
 
   function drawBubble(data) {
     console.log(data);
-    // var time1 = moment(data[0][0]).format("MM-DD-YY");
-    // var time2 = moment(data[0][1]).format("MM-DD-YY")
-
-    var benchMaxes = [];
-    var overheadMaxes = [];
-    var squatMaxes = [];
-    var deadMaxes = [];
 
     function DataPoint(x, y){
       this.x = moment(x).format("MM-DD-YY");
@@ -43,7 +36,7 @@ $(document).on('turbolinks:load', function() {
         } else if (array[i].name === 'Power Squat' || data[i].name === 'Olympic Squat'){
           dMaxes[2].push(obj);
         } else if (array[i].name === 'Deadlift'){
-          Maxes[3].push(obj);
+          dMaxes[3].push(obj);
         };
       } return dMaxes;
     };

@@ -1,7 +1,5 @@
 class JournalsController < ApplicationController
   def index
-    @user = current_user
-    @journals = @user.journals.all
   end
 
   def show

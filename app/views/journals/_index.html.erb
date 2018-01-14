@@ -1,1 +1,13 @@
-  <h5>History</h5>
+<% current_user.journals.each do |j| %>
+<h3>Notes</h3>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Entry</th>
+  </tr>
+  <tr>
+    <td><%= j.title %></td>
+    <td><%= j.entry.html_safe %></td>
+  </tr>
+</table>
+<% end %>
