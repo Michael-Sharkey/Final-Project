@@ -13,11 +13,11 @@ class GraphsController < ApplicationController
   end
 
   def bubble
-    @patterns = current_user.exercises.cumulative_volume
+    @maxes = current_user.exercises.daily_maxes
 
     respond_to do |format|
       format.html
-      format.json { render json: @patterns }
+      format.json { render json: @maxes }
     end
   end
 
