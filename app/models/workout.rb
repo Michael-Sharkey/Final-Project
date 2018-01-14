@@ -9,7 +9,8 @@ class Workout < ApplicationRecord
     order(created_at: :desc).limit(integer).to_json(include: :exercises)
   end
 
-  
+    
+
 
 
 end

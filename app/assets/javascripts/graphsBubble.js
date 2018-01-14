@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
   $.ajax({
     type: 'GET',
     contentType: 'application/json; charset=utf-8',
-    url: '../graphs/polar',
+    url: '../graphs/bubble',
     dataType: 'json',
     success: function(data) {
       drawBubble(data);
@@ -19,26 +19,74 @@ $(document).on('turbolinks:load', function() {
 
   function drawBubble(data) {
     console.log(data);
-    var time1 = moment(data[0][0]).format("MM-DD-YY");
-    var time2 = moment(data[0][1]).format("MM-DD-YY")
+    // var time1 = moment(data[0][0]).format("MM-DD-YY");
+    // var time2 = moment(data[0][1]).format("MM-DD-YY")
+
+    var benchMaxes = [];
+    var overheadMaxes = [];
+    var squatMaxes = [];
+    var deadMaxes = [];
+
+    function DataPoint(x, y){
+      this.x = moment(x).format("MM-DD-YY");
+      this.y = y;
+    };
+
+    function getMaxes(array){
+      var dMaxes = [[],[],[],[]];
+      for (let i = 0; i < array.length; i++){
+        let obj = new DataPoint(array[i].date, array[i].weight);
+        if (array[i].name === 'Bench Press'){
+          dMaxes[0].push(obj);
+        } else if (array[i].name === 'Overhead Press'){
+          dMaxes[1].push(obj);
+        } else if (array[i].name === 'Power Squat' || data[i].name === 'Olympic Squat'){
+          dMaxes[2].push(obj);
+        } else if (array[i].name === 'Deadlift'){
+          Maxes[3].push(obj);
+        };
+      } return dMaxes;
+    };
+
+    var dailyMaxes = getMaxes(data);
+
+    console.log(dailyMaxes);
 
     var ctx = document.getElementById("workingWeights");
 
     var bubble = new Chart(ctx, {
       type: 'line',
       data: {
-        datasets: [{
+        datasets: [
+        {
           label: 'Bench Press',
-          data: [{
-              x: time1,
-              y: 2
-            },
-            {
-              x: "01-25-18",
-              y: 5
-            }
-          ]
-        }]
+          borderColor: 'red',
+          backgroundColor: 'red',
+          fill: false,
+          data: dailyMaxes[0]
+        },
+        {
+          label: 'Overhead Press',
+          borderColor: 'blue',
+          backgroundColor: 'blue',
+          fill: false,
+          data: dailyMaxes[1]
+        },
+        {
+          label: 'Squat',
+          borderColor: 'yellow',
+          backgroundColor: 'yellow',
+          fill: false,
+          data: dailyMaxes[2]
+        },
+        {
+          label: 'Deadlift',
+          borderColor: 'green',
+          backgroundColor: 'green',
+          fill: false,
+          data: dailyMaxes[3]
+        }
+      ],
       },
       options: {
         scales: {
