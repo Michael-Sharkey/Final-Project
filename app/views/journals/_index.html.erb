@@ -1,13 +1,11 @@
-<% current_user.journals.each do |j| %>
 <h3>Notes</h3>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Entry</th>
-  </tr>
-  <tr>
+<div id="notes-accordion">
+  <% current_user.journals.each do |j| %>
+  <div class="note-title">
     <td><%= j.title %></td>
+  </div>
+  <div class="note-contents hidden">
     <td><%= j.entry.html_safe %></td>
-  </tr>
-</table>
-<% end %>
+  </div>
+  <% end %>
+</div>

@@ -30,3 +30,20 @@ trix-toolbar {
   width: auto;
   overflow-x: scroll;
 }
+
+#note-accordion {
+  height: auto;
+  width: 100%;
+}
+
+.note-title {
+  height: 30px;
+  width: 100%;
+  background-color: pink;
+  border-bottom: 1px solid black;
+}
+
+.note-contents {
+  height: auto;
+  width: 100%;
+}
