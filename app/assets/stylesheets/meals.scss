@@ -2,88 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$red: rgb(180, 30, 6);
-$blue: rgb(15, 71, 199);
-$yellow: rgb(238, 205, 23);
-$green: rgb(27, 103, 7);
-$headers: 'Kanit', sans-serif;
-$outShadow: 1px 2px 2px 1px;
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixins_and_variables";
 
-@mixin slide-chevrons {
-  cursor: pointer;
-  width: auto;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  font-size: 36px;
+.fa-chevron-right {
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-#meal-carousel {
-  grid-area: 1 / 1 / span 9 / span 9;
-  z-index: 2;
-}
-
-.meal-pics {
-  width: 100%;
-}
-
-
-#prev {
-  @include slide-chevrons;
-  grid-area: 5 / 1 / span 2 / span 1;
-  z-index: 3;
 
   &:hover {
     color: rgba(0,0,0,0.8);
   }
 }
 
-#next {
-  @include slide-chevrons;
-  grid-area: 5 / 11 / span 2 / span 1;
-  z-index: 3;
+.fa-chevron-left {
+  transition: 0.6s ease;
 
   &:hover {
     color: rgba(0,0,0,0.5);
   }
 }
 
-.box {
-  grid-area: 9 / 5 / span 1 / span 3;
-  z-index: 3;
-}
-
-.plusMinus {
-  cursor:pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .plusMinus:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+#meal-carousel {
+  grid-area: 1 / 1 / span 9 / span 9;
+  z-index: 2;
 }

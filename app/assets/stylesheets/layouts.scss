@@ -1,0 +1,75 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixins_and_variables";
+
+* {
+  box-sizing: border-box;
+}
+
+a:active,
+a:hover,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#mainArea {
+  background-color: white;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas: "header" "main";
+}
+
+h1 {
+  float: left;
+  font-family: $headers;
+}
+
+h5 {
+  margin: 5px;
+  font-family: $headers;
+}
+
+header {
+  grid-area: header;
+  background: $red;
+}
+
+main {
+  grid-area: main;
+  background: white;
+  grid-gap: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+}
+
+#new-button {
+  position: fixed;
+  height: 10px;
+  width: 10px;
+  background-color: $red;
+  border-radius: 50%;
+  box-shadow: $outShadow;
+  bottom: 20px;
+  right: 20px;
+  padding-top: 50px;
+  padding-left: 50px;
+  z-index: 3;
+}
+
+#new-modal {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.5);
+  transition: 0.5s;
+}

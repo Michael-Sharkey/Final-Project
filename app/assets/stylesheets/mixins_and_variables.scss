@@ -1,0 +1,22 @@
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+$red: rgb(180, 30, 6);
+$blue: rgb(15, 71, 199);
+$yellow: rgb(238, 205, 23);
+$green: rgb(27, 103, 7);
+$headers: 'Kanit', sans-serif;
+$outShadow: 1px 2px 2px 1px;
+
+@mixin card-basics {
+  height: auto;
+  width: 100%;
+  background: white;
+  box-shadow: $outShadow;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hide;
+}
