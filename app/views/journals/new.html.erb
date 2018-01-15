@@ -1,0 +1,8 @@
+
+<div class="card-journal">
+<%= simple_form_for current_user.journals.new, url: journals_path(current_user) do |j| %>
+<%= j.input :title, placeholder: "Title",label: false %>
+<%= j.input :entry, as: :trix_editor, class: "journal-entry", label: false %>
+<%= j.button :submit, "Post" %>
+<% end %>
+</div>

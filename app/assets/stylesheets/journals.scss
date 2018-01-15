@@ -1,3 +1,49 @@
 // Place all the styles related to the Journals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: rgb(180, 30, 6);
+$blue: rgb(15, 71, 199);
+$yellow: rgb(238, 205, 23);
+$green: rgb(27, 103, 7);
+$headers: 'Kanit', sans-serif;
+$outShadow: 1px 2px 2px 1px;
+
+a:link, a:visited, a:hover, a:active  {
+  text-decoration: none;
+}
+
+.card-journal {
+  height: auto;
+  width: 350px;
+  background: white;
+  box-shadow: $outShadow;
+}
+
+.journal-entry{
+  width: 100%;
+  padding: 5px;
+}
+
+trix-toolbar {
+  background-color: red;
+  width: auto;
+  overflow-x: scroll;
+}
+
+#note-accordion {
+  height: auto;
+  width: 100%;
+}
+
+.note-title {
+  height: 30px;
+  width: 100%;
+  background-color: pink;
+  border-bottom: 1px solid black;
+}
+
+.note-contents {
+  height: auto;
+  width: 100%;
+}

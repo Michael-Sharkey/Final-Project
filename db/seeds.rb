@@ -78,3 +78,6 @@ Exercise.create(workout_id: 7, pattern: "Hinge", name: "Power Clean", weight: "1
 Exercise.create(workout_id: 8, pattern: "Hinge", name: "Power Clean", weight: "205", reps: 4, rpe: 7, daily_max: true)
 Exercise.create(workout_id: 9, pattern: "Core", name: "Situp", weight: "100", reps: 15, rpe: 8, daily_max: false)
 Exercise.create(workout_id: 10, pattern: "Core", name: "Situp", weight: "50", reps: 13, rpe: 8, daily_max: false)
+
+10.times {Journal.create(user_id: 1, title: 'Test Post User 1', entry: "<div><strong>This is a dummy post for seed data purposes.<br></strong><em>This is a dummy post for seed data purposes.<br></em><del>This is a dummy post for seed data purposes.</del></div><ul><li>This is a dummy post for seed data purposes.</li></ul><blockquote>This is a dummy post for seed data purposes.</blockquote><ol><li>This is a dummy post for seed data purposes.</li></ol>") }
+10.times {Journal.create(user_id: 2, title: 'Test Post User 2', entry: "<div><strong>This is a dummy post for seed data purposes.<br></strong><em>This is a dummy post for seed data purposes.<br></em><del>This is a dummy post for seed data purposes.</del></div><ul><li>This is a dummy post for seed data purposes.</li></ul><blockquote>This is a dummy post for seed data purposes.</blockquote><ol><li>This is a dummy post for seed data purposes.</li></ol>") }

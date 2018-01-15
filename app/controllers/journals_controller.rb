@@ -1,7 +1,5 @@
 class JournalsController < ApplicationController
   def index
-    @user = current_user
-    @journals = @user.journals.all
   end
 
   def show
@@ -9,11 +7,11 @@ class JournalsController < ApplicationController
   end
 
   def new
-    @journal = Journal.new
+    @journal = current_user.journals.new
   end
 
   def create
-    @journal = Journal.new(journal_params)
+    @journal = current_user.journals.new(journal_params)
     @journal.user_id = current_user.id
     if @journal.save
       redirect_to @journal, notice: 'Success!'
