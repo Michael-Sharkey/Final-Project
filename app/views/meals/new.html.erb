@@ -1,6 +1,11 @@
-
-<%= simple_form_for current_user.meals.new, url: meals_path do |m| %>
-<%= m.input :photo, as: :file, input_html:{}, label: false %>
-<%= m.input :good, as: :boolean, label: false, hint: "Good for you? Be honest." %>
-<%= m.button :submit, "Let's Eat!", class: "btn btn-primary" %>
-<% end %>
+<div id="meal-modal">
+  <%= simple_form_for current_user.meals.new, url: meals_path do |m| %>
+      <i class="fa fa-camera fa-2x" id="meal-photo"></i>
+      <%= m.input :photo, as: :file, input_html: {id: "file-button", hidden: true}, label: false %>
+      <span>
+        <h3>Is this good for you?</h3>
+        <%= m.input :good, as: :boolean, input_html: {class: "checkbox"}, label: false %>
+      </span>
+      <%= m.button :submit, input_html: {class: "fa fa-plus-circle fa-2x"}, label: false %>
+  <% end %>
+</div>

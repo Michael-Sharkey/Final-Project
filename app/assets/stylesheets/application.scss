@@ -10,126 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
-
  *= require_tree .
  *= require_self
  *= require trix
  *= require select2
  */
 
-* {
-  box-sizing: border-box;
-}
-
-$red: rgb(180, 30, 6);
-$blue: rgb(15, 71, 199);
-$yellow: rgb(238, 205, 23);
-$green: rgb(27, 103, 7);
-$headers: 'Kanit', sans-serif;
-$outShadow: 1px 2px 2px 1px;
-
-a:link, a:visited, a:hover, a:active  {
-  text-decoration: none;
-}
-
-.hidden {
-  display: none;
-}
-
-#mainArea {
-  background-color: white;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-areas:
-    "header"
-    "main";
-}
-
-header {
-  grid-area: header;
-  background: $red;
-
-  h1 {
-    float: left;
-    font-family: $headers
-  }
-}
-
-main {
-  grid-area: main;
-  background: white;
-  grid-gap: 10px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
-}
-
-  .card {
-    height: auto;
-    width: 100%;
-    background: white;
-    box-shadow: $outShadow;
-    display: flex;
-    flex-direction: column;
-    overflow: hide;
-
-    h5 {
-      margin: 5px;
-      font-family: $headers;
-    }
-  }
-
-  .button {
-    color: white;
-  }
-
-  #new-button {
-    position: fixed;
-    height: 10px;
-    width: 10px;
-    background-color: $red;
-    border-radius: 50%;
-    box-shadow: $outShadow;
-    bottom: 20px;
-    right: 20px;
-    padding-top: 50px;
-    padding-left: 50px;
-    z-index: 3;
-  }
-
-
-  #new-modal {
-      height: 0;
-      width: 100%;
-      position: fixed;
-      z-index: 1;
-      bottom: 0px;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.75);
-      transition: 0.5s;
-  }
-
-  #train {
-    background-color: purple;
-  }
-
-  #eat {
-    background-color: green;
-  }
-
-  #journal {
-    background-color: yellow;
-  }
-
-  .card-meal {
-      height: auto;
-      width: auto;
-      background: white;
-      box-shadow: $outShadow;
-      display: grid;
-      grid-template-rows: repeat(9, 1fr);
-      grid-template-columns: repeat(9, 1fr);
-      overflow: hide;
-      z-index: 1;
-  }
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "mixins_and_variables";

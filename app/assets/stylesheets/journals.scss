@@ -2,28 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$red: rgb(180, 30, 6);
-$blue: rgb(15, 71, 199);
-$yellow: rgb(238, 205, 23);
-$green: rgb(27, 103, 7);
-$headers: 'Kanit', sans-serif;
-$outShadow: 1px 2px 2px 1px;
-
-a:link, a:visited, a:hover, a:active  {
-  text-decoration: none;
-}
-
-.card-journal {
-  height: auto;
-  width: 350px;
-  background: white;
-  box-shadow: $outShadow;
-}
-
-.journal-entry{
-  width: 100%;
-  padding: 5px;
-}
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixins_and_variables";
 
 trix-toolbar {
   background-color: red;
@@ -31,9 +12,9 @@ trix-toolbar {
   overflow-x: scroll;
 }
 
-#note-accordion {
-  height: auto;
+.journal-entry {
   width: 100%;
+  padding: 5px;
 }
 
 .note-title {
@@ -44,6 +25,11 @@ trix-toolbar {
 }
 
 .note-contents {
+  height: auto;
+  width: 100%;
+}
+
+#note-accordion {
   height: auto;
   width: 100%;
 }

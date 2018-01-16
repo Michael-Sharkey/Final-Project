@@ -3,35 +3,15 @@
   <head>
     <title>FinalProject</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Kanit:700" rel="stylesheet">
-
   </head>
   <body>
 
-    <div id="new-modal">
-      <nav>
-        <% if signed_in? %>
-          <%= link_to "Workout", new_workout_path, class: "button" %>
-          <%= link_to "Eat", new_meal_path, class: "button" %>
-          <%= link_to "Notebook", new_journal_path, class: "button" %>
-          <%= link_to "Dashboard", user_path(current_user), class: "button" %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "button" %>
-        <% else %>
-          <%= link_to "Log In", new_user_session_path, class: "button" %>
-          <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
-        <% end %>
-      </nav>
-    </div>
-
-    <div id="mainArea">
       <header>
         <h1>BarBender</h1>
       </header>
-
-      <div id="nav-button"></div>
 
       <p><%= notice %></p>
 
@@ -39,8 +19,20 @@
         <%= yield %>
       </main>
 
-      <div id="new-button"></div>
+      <div id="nav-button"></div>
+      <div id="nav-menu">
+          <% if signed_in? %>
+            <%= link_to "", new_workout_path, class: "menu-button fa fa-heartbeat fa-2x" %>
+            <%= link_to "", new_meal_path, id: "add-meal", class: "menu-button fa fa-cutlery fa-2x" %>
+            <%= link_to "", new_journal_path, class: "menu-button fa fa-sticky-note fa-2x" %>
+            <%= link_to "", user_path(current_user), class: "menu-button fa fa-user-circle fa-2x" %>
+            <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "menu-button fa fa-cog fa-2x" %>
+          <% else %>
+            <%= link_to "Log In", new_user_session_path, class: "button" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+          <% end %>
+      </div>
 
-    </div>
+
   </body>
 </html>

@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixins_and_variables";
+
+.card-show {
+  @include card-basics
+}
+
+.card-body {
+  @include card-body-basic
+}
+
+.card-title {
+  @include card-title-basic
+}

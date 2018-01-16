@@ -2,16 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$red: rgb(180, 30, 6);
-$blue: rgb(15, 71, 199);
-$yellow: rgb(238, 205, 23);
-$green: rgb(27, 103, 7);
-$headers: 'Kanit', sans-serif;
-$outShadow: 1px 1px 1px 1px;
-
-a:link, a:visited, a:hover, a:active  {
-  text-decoration: none;
-}
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixins_and_variables";
 
 .card-workout {
   height: auto;
@@ -51,12 +44,10 @@ a:link, a:visited, a:hover, a:active  {
 
 .reps {
   grid-area: 4 / 2 / span 1 / span 1;
-
 }
 
 .intensity {
   grid-area: 4 / 3 / span 1 / span 1;
-
 }
 
 .remove {

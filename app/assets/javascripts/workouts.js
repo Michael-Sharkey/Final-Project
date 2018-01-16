@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function() {
-
+$(document).ready(function(){
+  
   $('.pattern-fields').select2({
     width: '100%',
     placeholder: 'Movement Pattern'
@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
     placeholder: 'Exercise'
   });
 
-  $('main').on('cocoon:after-insert', function(){
+  $('body').on('cocoon:after-insert', function(){
     $('.pattern-fields').select2({
       width: '100%',
       placeholder: 'Movement Pattern'
