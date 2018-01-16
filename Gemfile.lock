@@ -145,6 +145,7 @@ GEM
       railties (= 5.1.4)
       sprockets-rails (>= 2.0.0)
     rails-assets-chartjs (2.7.1)
+    rails-assets-dropzone (5.1.1)
     rails-assets-momentjs (2.20.1)
     rails-assets-select2 (4.0.5)
     rails-dom-testing (2.0.3)
@@ -240,6 +241,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-chartjs!
+  rails-assets-dropzone!
   rails-assets-momentjs!
   rails-assets-select2!
   sass-rails (~> 5.0)

@@ -17,13 +17,13 @@
 
       <main>
         <%= yield %>
-        <div id="new-button"></div>
       </main>
 
-      <div id="new-modal">
+      <div id="nav-button"></div>
+      <div id="nav-menu">
           <% if signed_in? %>
             <%= link_to "", new_workout_path, class: "menu-button fa fa-heartbeat fa-2x" %>
-            <%= link_to "", new_meal_path, class: "menu-button fa fa-cutlery fa-2x" %>
+            <%= link_to "", new_meal_path, id: "add-meal", class: "menu-button fa fa-cutlery fa-2x" %>
             <%= link_to "", new_journal_path, class: "menu-button fa fa-sticky-note fa-2x" %>
             <%= link_to "", user_path(current_user), class: "menu-button fa fa-user-circle fa-2x" %>
             <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "menu-button fa fa-cog fa-2x" %>
@@ -32,6 +32,7 @@
             <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
           <% end %>
       </div>
+
 
   </body>
 </html>

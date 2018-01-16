@@ -1,18 +1,16 @@
 
 $(document).ready(function(){
 
-  const newButton = document.getElementById('new-button');
-  const newModal = document.getElementById('new-modal');
+  const navButton = document.getElementById('nav-button');
+  const navMenu = document.getElementById('nav-menu');
 
-
-  function toggleNew() {
-    if (newModal.style.paddingRight !== "100px"){
-      newModal.style.paddingRight = "100px";
-    } else if (newModal.style.paddingRight === "100px"){
-      newModal.style.paddingRight = "0px";
+  function toggleNav() {
+    if (navMenu.style.paddingRight !== "100px"){
+      navMenu.style.paddingRight = "100px";
+    } else if (navMenu.style.paddingRight === "100px"){
+      navMenu.style.paddingRight = "0px";
     };
   };
 
-  newButton.addEventListener('click', toggleNew);
-
+  navButton.addEventListener('click', toggleNav);
 })

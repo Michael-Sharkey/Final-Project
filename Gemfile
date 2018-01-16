@@ -65,4 +65,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-chartjs'
   gem 'rails-assets-momentjs'
   gem 'rails-assets-select2'
+  gem 'rails-assets-dropzone'
 end

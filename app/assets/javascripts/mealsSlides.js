@@ -1,8 +1,10 @@
 $(document).ready(function(){
-  
+
   const mealCarousel = document.getElementById('meal-carousel');
   const prevMeal = document.getElementById('prev');
   const nextMeal = document.getElementById('next');
+  const newMeal = document.getElementById('meal-photo');
+  const fileButton = document.getElementById('file-button');
 
   $.ajax({
     type: 'GET',
@@ -60,7 +62,8 @@ $(document).ready(function(){
     }
   };
 
+
   nextMeal.addEventListener('click', nxtMeal);
   prevMeal.addEventListener('click', prvMeal);
-
+  
 })

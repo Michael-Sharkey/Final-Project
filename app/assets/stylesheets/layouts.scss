@@ -23,7 +23,6 @@ body {
   grid-gap: 5px;
   grid-template-areas: "header"
                        "main";
-  zindex: 0;
 }
 
 h1 {
@@ -51,7 +50,7 @@ main {
   grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
 }
 
-#new-button {
+#nav-button {
   position: fixed;
   height: 10px;
   width: 10px;
@@ -65,14 +64,14 @@ main {
   z-index: 3;
 }
 
-#new-modal {
+#nav-menu {
   height: 100%;
   width: 0;
   position: fixed;
   display: block;
   top: 0;
   right: 0px;
-  padding-top: 50%;
+  padding-top: 20%;
   background: rgba(0,0,0,0.7);
   transition: 0.5s;
 }
@@ -81,5 +80,6 @@ main {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 40px;
-  color: red;
+  color: $yellow;
+  z-index: 3;
 }
