@@ -1,5 +1,4 @@
-$(document).on('turbolinks:load', function() {
-
+$(document).ready(function(){
 
   var titles = document.getElementsByClassName('note-title');
   var entries = document.getElementsByClassName('note-contents');

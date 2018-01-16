@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function() {
-
+$(document).ready(function(){
+  
   const mealCarousel = document.getElementById('meal-carousel');
   const prevMeal = document.getElementById('prev');
   const nextMeal = document.getElementById('next');

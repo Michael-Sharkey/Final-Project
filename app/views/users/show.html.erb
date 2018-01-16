@@ -1,22 +1,44 @@
 <div class="card-show">
-  <h5>Working Weights</h5>
-  <%= render 'graphs/bubble' %>
+  <div class="card-title">
+    Daily Training Maxes
+  </div>
+  <div class="card-body">
+    <%= render 'graphs/bubble' %>
+  </div>
 </div>
 
 <div class="card-show">
-  <h5>Total Volume - Last 5 Workouts</h5>
-  <%= render 'graphs/radar' %>
+  <div class="card-title">
+    Cumulative Training Volume
+  </div>
+  <div class="card-body">
+    <%= render 'graphs/polar' %>
+  </div>
 </div>
 
 <div class="card-show">
-  <h5>Cumulative Volume</h5>
-  <%= render 'graphs/polar' %>
+  <div class="card-title">
+    Movements Used
+  </div>
+  <div class="card-body">
+    <%= render 'graphs/radar' %>
+  </div>
 </div>
 
 <div class="card-show">
-  <%= render 'meals/slides' %>
+  <div class="card-title">
+    Diet
+  </div>
+  <div class="card-body">
+    <%= render 'meals/slides' %>
+  </div>
 </div>
 
 <div class="card-show">
-  <%= render 'journals/index' %>
+  <div class="card-title">
+    Notes
+  </div>
+  <div class="card-body">
+    <%= render 'journals/index' %>
+  </div>
 </div>

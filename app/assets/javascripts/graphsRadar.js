@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function() {
-
+$(document).ready(function(){
+  
   $.ajax({
     type: 'GET',
     contentType: 'application/json; charset=utf-8',

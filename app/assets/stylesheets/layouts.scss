@@ -17,11 +17,13 @@ a:visited {
   display: none;
 }
 
-#mainArea {
+body {
   background-color: white;
   display: grid;
   grid-gap: 5px;
-  grid-template-areas: "header" "main";
+  grid-template-areas: "header"
+                       "main";
+  zindex: 0;
 }
 
 h1 {
@@ -64,12 +66,20 @@ main {
 }
 
 #new-modal {
-  height: 0;
-  width: 100%;
+  height: 100%;
+  width: 0;
   position: fixed;
-  z-index: 3;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(1, 1, 1, 0.5);
+  display: block;
+  top: 0;
+  right: 0px;
+  padding-top: 50%;
+  background: rgba(0,0,0,0.7);
   transition: 0.5s;
+}
+
+.menu-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  color: red;
 }

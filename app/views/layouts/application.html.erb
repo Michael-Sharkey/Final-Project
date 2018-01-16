@@ -9,31 +9,29 @@
   </head>
   <body>
 
-    <div id="new-modal">
-      <nav>
-          <%= link_to "", new_workout_path, class: "fa fa-heartbeat fa-2x" %>
-          <%= link_to "", new_meal_path, class: "fa fa-cutlery fa-2x" %>
-          <%= link_to "", new_journal_path, class: "fa fa-sticky-note fa-2x" %>
-          <%= link_to "", user_path(current_user), class: "fa fa-cog fa-2x"%>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "button" %>
-      </nav>
-    </div>
-
-    <div id="mainArea">
       <header>
         <h1>BarBender</h1>
       </header>
-
-      <div id="nav-button"></div>
 
       <p><%= notice %></p>
 
       <main>
         <%= yield %>
+        <div id="new-button"></div>
       </main>
 
-      <div id="new-button"></div>
+      <div id="new-modal">
+          <% if signed_in? %>
+            <%= link_to "", new_workout_path, class: "menu-button fa fa-heartbeat fa-2x" %>
+            <%= link_to "", new_meal_path, class: "menu-button fa fa-cutlery fa-2x" %>
+            <%= link_to "", new_journal_path, class: "menu-button fa fa-sticky-note fa-2x" %>
+            <%= link_to "", user_path(current_user), class: "menu-button fa fa-user-circle fa-2x" %>
+            <%= link_to "", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: "menu-button fa fa-cog fa-2x" %>
+          <% else %>
+            <%= link_to "Log In", new_user_session_path, class: "button" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+          <% end %>
+      </div>
 
-    </div>
   </body>
 </html>

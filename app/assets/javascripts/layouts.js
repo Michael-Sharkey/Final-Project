@@ -1,17 +1,18 @@
-$(document).on('turbolinks:load', function(){
+
+$(document).ready(function(){
 
   const newButton = document.getElementById('new-button');
   const newModal = document.getElementById('new-modal');
 
 
   function toggleNew() {
-    if (newModal.style.height === "0px" || newModal.style.height === ""){
-      newModal.style.height = "100px";
-    } else if (newModal.style.height === "100px"){
-      newModal.style.height = "0px";
+    if (newModal.style.paddingRight !== "100px"){
+      newModal.style.paddingRight = "100px";
+    } else if (newModal.style.paddingRight === "100px"){
+      newModal.style.paddingRight = "0px";
     };
   };
 
   newButton.addEventListener('click', toggleNew);
 
-});
+})
