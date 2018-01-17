@@ -23,7 +23,7 @@ end
 
 # Use PostgreSQL as the database for Active Record in production environment
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 1.0'
 end
 
 # Use Puma as the app server
