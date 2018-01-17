@@ -24,6 +24,6 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: db/production.pg
-  username: msharkey415
-  password: ENV['Wab0Stan!ey']
+  database: myapp
+  username: username
+  password: ENV['DB_PASSWORD']
