@@ -13,12 +13,19 @@ gem 'trix'
 gem 'simple_form'
 gem "cocoon"
 gem 'font-awesome-sass'
-gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record in development environment
+group :development do
+  gem 'sqlite3'
+end
+
+# Use PostgreSQL as the database for Active Record in production environment
+group :development do
+  gem 'pg', '~> 0.18.4'
+end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

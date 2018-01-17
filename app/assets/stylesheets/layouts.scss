@@ -68,10 +68,10 @@ main {
   z-index: 20;
 
 
-  .fa-plus {
+  .fa-bullseye {
     position: fixed;
     bottom: 37px;
-    right: 39px;
+    right: 38px;
     padding-top: 50px;
     padding-left: 50px;
     z-index: 21;
@@ -88,9 +88,16 @@ main {
   top: 0;
   right: 0px;
   padding-top: 20%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   transition: 0.5s;
   z-index: 10;
+
+  .button-group {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    margin: 20px;
+  }
 
 }
 
@@ -99,5 +106,6 @@ main {
   margin-bottom: 20px;
   margin-left: 40px;
   color: $yellow;
+  text-shadow: $textShadow;
   z-index: 11;
 }
