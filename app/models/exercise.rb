@@ -1,11 +1,10 @@
 class Exercise < ApplicationRecord
-  belongs_to :workout
+  belongs_to :movement
 
-  def self.daily_maxes
-    where(daily_max: true).joins(:workout).select('exercises.name, exercises.weight, exercises.reps, exercises.rpe, workouts.date').to_json
-  end
+  # validates :pattern, inclusion: { in: %w(Push Pull Squat Hinge Core),
+  #   message: "%{value} is not a valid movement pattern" }
 
-  def self.cumulative_volume
-    order(:pattern, :name, created_at: :desc).to_json
-  end
+
+
+  
 end

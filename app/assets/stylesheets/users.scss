@@ -9,11 +9,3 @@
 .card-show {
   @include card-basics
 }
-
-.card-body {
-  @include card-body-basic
-}
-
-.card-title {
-  @include card-title-basic
-}

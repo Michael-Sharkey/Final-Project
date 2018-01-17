@@ -1,13 +1,25 @@
 <div class="card-workout">
 
   <%= simple_form_for @workout do |f| %>
+
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+      <ul>
+      <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.input :date, as: :date, input_html: {id: 'session-info'}, html5: true, label: false %>
-    <%= f.simple_fields_for :exercises do |exercise| %>
-      <%= render 'exercise_fields', f: exercise %>
+    <%= f.simple_fields_for :worksets do |workset| %>
+      <%= render 'workset_fields', f: workset %>
     <% end %>
 
     <div class="links">
-      <%= link_to_add_association '', f, :exercises, id: 'add-set' %>
+      <%= link_to_add_association '', f, :worksets, id: 'add-set' %>
     </div>
       <%= f.button :submit, "", id: 'finish' %>
   <% end %>

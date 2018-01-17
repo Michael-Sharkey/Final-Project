@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  get'graphs/polar'
-  get'graphs/radar'
-  get'graphs/bubble'
+  get'graphs/volume'
+  get'graphs/rep_ranges'
+  get'graphs/intensity'
 
   get'meals/slides'
 

@@ -17,14 +17,14 @@ class MealsController < ApplicationController
   end
 
   def new
-    @meal = Meal.new
+    @meal = current_user.meals.new
   end
 
   def create
     @meal = Meal.new(meal_params)
     @meal.user_id = current_user.id
     if @meal.save
-      redirect_to @meal, notice: 'Success!'
+      redirect_to current_user, notice: 'Success!'
     else
       render 'new', notice: 'Something Went Wrong'
     end
@@ -33,6 +33,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:id, :user_id, :photo, '_destroy')
+    params.require(:meal).permit(:id, :user_id, :photo, :good, '_destroy')
   end
 end

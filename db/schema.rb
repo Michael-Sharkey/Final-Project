@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113173805) do
+ActiveRecord::Schema.define(version: 20180116194339) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.string "pattern"
-    t.integer "workout_id"
-    t.integer "weight"
-    t.integer "reps"
-    t.integer "rpe"
-    t.boolean "daily_max"
+    t.integer "movement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["workout_id"], name: "index_exercises_on_workout_id"
+    t.index ["movement_id"], name: "index_exercises_on_movement_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -35,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180113173805) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string "name"
     t.integer "user_id"
     t.boolean "good"
     t.datetime "created_at", null: false
@@ -47,18 +41,10 @@ ActiveRecord::Schema.define(version: 20180113173805) do
     t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
-  create_table "measurements", force: :cascade do |t|
-    t.date "date"
-    t.integer "weight"
-    t.float "neck"
-    t.float "waist"
-    t.float "chest"
-    t.float "biceps"
-    t.float "thigh"
-    t.integer "user_id"
+  create_table "movements", force: :cascade do |t|
+    t.string "pattern"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_measurements_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,14 +73,28 @@ ActiveRecord::Schema.define(version: 20180113173805) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.date "date"
+    t.datetime "date"
     t.integer "feeling_before"
     t.integer "rating_after"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.text "notes"
     t.index ["user_id"], name: "index_workouts_on_user_id"
+  end
+
+  create_table "worksets", force: :cascade do |t|
+    t.integer "workout_id"
+    t.integer "movement_id"
+    t.integer "exercise_id"
+    t.integer "weight"
+    t.integer "reps"
+    t.integer "rpe"
+    t.boolean "daily_max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_worksets_on_exercise_id"
+    t.index ["movement_id"], name: "index_worksets_on_movement_id"
+    t.index ["workout_id"], name: "index_worksets_on_workout_id"
   end
 
 end

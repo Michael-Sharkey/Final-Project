@@ -13,20 +13,9 @@ $outShadow: 1px 2px 2px 1px;
 @mixin card-basics {
   height: auto;
   width: 100%;
-  background: white;
   box-shadow: $outShadow;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 5px;
-}
-
-@mixin card-title-basic {
-  margin-bottom: 5px;
-  font-family: $headers;
-}
-
-@mixin card-body-basic {
-  font-family: arial;
 }

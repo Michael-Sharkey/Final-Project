@@ -1,15 +1,15 @@
 
 <div class='nested-fields form-fields'>
   <div class="remove">
-    <%= link_to_remove_association "X", f, input_html: {} %>
+    <%= link_to_remove_association "X", f %>
   </div>
 
   <div class="movement">
-    <%= f.input :pattern, collection: Exercise.order(:pattern).pluck(:pattern).uniq, input_html: {class: 'form-input pattern-fields'}, label: false %>
+    <%= f.input :movement_id, collection: Movement.order(:created_at), label_method: "pattern", input_html: {class: 'form-input pattern-fields'}, label: false %>
   </div>
 
   <div class="exercise">
-    <%= f.input :name, collection: Exercise.group(:pattern, :name), input_html: {class: 'form-input exercise-fields'}, label: false %>
+    <%= f.input :exercise_id, collection: Movement.order(:pattern), as: :grouped_select, group_method: :exercises, group_label_method: :pattern, input_html: {class: 'form-input exercise-fields'}, label: false %>
   </div>
 
   <div class="weight">
