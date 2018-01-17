@@ -25,19 +25,22 @@ body {
                        "main";
 }
 
-h1 {
-  float: left;
-  font-family: $headers;
-}
-
-h5 {
-  margin: 5px;
-  font-family: $headers;
-}
 
 header {
   grid-area: header;
   background: $red;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  box-shadow: $outShadow;
+
+  h1 {
+    float: left;
+    font-family: $headers;
+    color: white;
+    text-shadow: $textShadow;
+  }
 }
 
 main {
