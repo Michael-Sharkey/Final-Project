@@ -1,10 +1,7 @@
 class GraphsController < ApplicationController
 
-  def bar
-  end
-
-  def polar
-    @patterns = current_user.exercises.cumulative_volume
+  def volume
+    @patterns = current_user.worksets.cumulative_volume
 
     respond_to do |format|
       format.html
@@ -12,8 +9,8 @@ class GraphsController < ApplicationController
     end
   end
 
-  def bubble
-    @maxes = current_user.exercises.daily_maxes
+  def intensity
+    @maxes = current_user.worksets.daily_maxes
 
     respond_to do |format|
       format.html
@@ -21,12 +18,12 @@ class GraphsController < ApplicationController
     end
   end
 
-  def radar
-    @workouts = current_user.workouts.most_recent(5)
+  def rep_ranges
+    @sets = current_user.worksets.rep_ranges
 
     respond_to do |format|
       format.html
-      format.json { render json: @workouts }
+      format.json { render json: @sets }
     end
   end
 

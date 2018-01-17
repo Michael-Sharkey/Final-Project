@@ -6,28 +6,58 @@
 @import "font-awesome";
 @import "mixins_and_variables";
 
+
+#meal-carousel {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+#current {
+  grid-area: 1 / 1 / span 10 / span 20;
+  z-index: 0;
+}
+
+#overlay {
+  grid-area: 1 / 1 / span 10 / span 20;
+  z-index: 1;
+  background-color: none;
+  opacity: 0.4;
+}
+
+.meal-pics {
+  height: 100%;
+  width: 100%;
+}
+
+.date-box {
+  font-family: $headers;
+  font-size: 12px;
+  color: white;
+  opacity: 0.5;
+  grid-area: 8 / 8 / span 1 / span 4;
+}
+
 .fa-chevron-right {
   transition: 0.6s ease;
+  grid-area: 6 / 20 / span 1 / span 1;
+  z-index: 1;
+  color: rgba(1,1,1,0.3);
 
   &:hover {
-    color: rgba(0,0,0,0.8);
+    color: rgba(1,1,1,0.8);
   }
 }
 
 .fa-chevron-left {
   transition: 0.6s ease;
+  grid-area: 6 / 1 / span 1 / span 1;
+  z-index: 2;
+  color: rgba(1,1,1,0.3);
 
   &:hover {
-    color: rgba(0,0,0,0.5);
+    color: rgba(1,1,1,0.8);
   }
-}
-
-#meal-carousel {
-  grid-area: 1 / 1 / span 9 / span 9;
-  z-index: 2;
-}
-
-#meal-modal {
-  @include card-basics;
-  display: grid;
 }

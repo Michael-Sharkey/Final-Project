@@ -74,6 +74,7 @@ main {
   padding-top: 20%;
   background: rgba(0,0,0,0.7);
   transition: 0.5s;
+  z-index: 10;
 }
 
 .menu-button {
@@ -81,5 +82,5 @@ main {
   margin-bottom: 20px;
   margin-left: 40px;
   color: $yellow;
-  z-index: 3;
+  z-index: 11;
 }
