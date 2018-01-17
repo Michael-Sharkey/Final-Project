@@ -59,12 +59,25 @@ main {
   width: 10px;
   background-color: $red;
   border-radius: 50%;
-  box-shadow: $outShadow;
+  box-shadow: $outShadow,
+              $buttonShadow;
   bottom: 20px;
   right: 20px;
   padding-top: 50px;
   padding-left: 50px;
-  z-index: 3;
+  z-index: 20;
+
+
+  .fa-plus {
+    position: fixed;
+    bottom: 37px;
+    right: 39px;
+    padding-top: 50px;
+    padding-left: 50px;
+    z-index: 21;
+    color: white;
+    text-shadow: $textShadow;
+  }
 }
 
 #nav-menu {
@@ -78,6 +91,7 @@ main {
   background: rgba(0,0,0,0.7);
   transition: 0.5s;
   z-index: 10;
+
 }
 
 .menu-button {
