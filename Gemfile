@@ -22,7 +22,7 @@ group :development do
 end
 
 # Use PostgreSQL as the database for Active Record in production environment
-group :development do
+group :production do
   gem 'pg'
 end
 
