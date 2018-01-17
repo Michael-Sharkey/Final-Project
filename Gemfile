@@ -18,12 +18,12 @@ gem 'font-awesome-sass'
 gem 'rails', '~> 5.1.4'
 
 # Use sqlite3 as the database for Active Record in development environment
-group :development, :test do
+group :development do
   gem 'sqlite3'
 end
 
 # Use PostgreSQL as the database for Active Record in production environment
-group :production do
+group :production, :test do
   gem 'pg'
 end
 
