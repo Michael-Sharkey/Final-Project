@@ -18,12 +18,14 @@ gem 'font-awesome-sass'
 gem 'rails', '~> 5.1.4'
 
 # Use sqlite3 as the database for Active Record in development environment
-# group :development do
-#   gem 'sqlite3'
-# end
+group :development do
+  gem 'sqlite3'
+end
 
 # Use PostgreSQL as the database for Active Record in production environment
+group :production do
   gem 'pg', '~> 0.21'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
