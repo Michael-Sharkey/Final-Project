@@ -25,19 +25,22 @@ body {
                        "main";
 }
 
-h1 {
-  float: left;
-  font-family: $headers;
-}
-
-h5 {
-  margin: 5px;
-  font-family: $headers;
-}
 
 header {
   grid-area: header;
   background: $red;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  box-shadow: $outShadow;
+
+  h1 {
+    float: left;
+    font-family: $headers;
+    color: white;
+    text-shadow: $textShadow;
+  }
 }
 
 main {
@@ -56,12 +59,25 @@ main {
   width: 10px;
   background-color: $red;
   border-radius: 50%;
-  box-shadow: $outShadow;
+  box-shadow: $outShadow,
+              $buttonShadow;
   bottom: 20px;
   right: 20px;
   padding-top: 50px;
   padding-left: 50px;
-  z-index: 3;
+  z-index: 20;
+
+
+  .fa-bullseye {
+    position: fixed;
+    bottom: 37px;
+    right: 38px;
+    padding-top: 50px;
+    padding-left: 50px;
+    z-index: 21;
+    color: white;
+    text-shadow: $textShadow;
+  }
 }
 
 #nav-menu {
@@ -72,9 +88,17 @@ main {
   top: 0;
   right: 0px;
   padding-top: 20%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   transition: 0.5s;
   z-index: 10;
+
+  .button-group {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    margin: 20px;
+  }
+
 }
 
 .menu-button {
@@ -82,5 +106,6 @@ main {
   margin-bottom: 20px;
   margin-left: 40px;
   color: $yellow;
+  text-shadow: $textShadow;
   z-index: 11;
 }
