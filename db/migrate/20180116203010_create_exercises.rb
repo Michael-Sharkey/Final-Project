@@ -2,7 +2,7 @@ class CreateExercises < ActiveRecord::Migration[5.1]
   def change
     create_table :exercises do |t|
       t.string :name
-      t.references :movement, foreign_key: true
+      t.integer :movement_id
 
       t.timestamps
     end
