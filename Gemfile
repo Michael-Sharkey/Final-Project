@@ -23,9 +23,7 @@ gem 'rails', '~> 5.1.4'
 # end
 
 # Use PostgreSQL as the database for Active Record in production environment
-  gem 'pg'
-
-
+  gem 'pg', '~> 0.21'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
