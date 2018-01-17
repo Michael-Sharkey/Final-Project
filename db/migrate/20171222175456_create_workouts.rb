@@ -5,7 +5,7 @@ class CreateWorkouts < ActiveRecord::Migration[5.1]
       t.integer :feeling_before
       t.integer :rating_after
       t.timestamps
-      t.references :user, foreign_key: true
+      t.integer :user_id
     end
   end
 end

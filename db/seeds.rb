@@ -1,6 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+User.create(email: 'guest@test.com', password: "123456", username: "Guest", location: "Philadelphia", age: "30")
+User.create(email: 'abc@123.com', password: "123456", username: "Lurker", location: "California", age: "20")
+
 Movement.create(pattern: "Push")
 Movement.create(pattern: "Pull")
 Movement.create(pattern: "Squat")

@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20180126194339) do
     t.integer "movement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movement_id"], name: "index_exercises_on_movement_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20180126194339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.text "bio"
     t.string "location"
     t.integer "age"
     t.string "avatar_file_name"
@@ -93,7 +91,6 @@ ActiveRecord::Schema.define(version: 20180126194339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_worksets_on_exercise_id"
-    t.index ["movement_id"], name: "index_worksets_on_movement_id"
     t.index ["workout_id"], name: "index_worksets_on_workout_id"
   end
 

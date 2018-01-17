@@ -1,7 +1,7 @@
 class CreateMeals < ActiveRecord::Migration[5.1]
   def change
     create_table :meals do |t|
-      t.references :user, foreign_key: true
+      t.integer :user_id
       t.boolean :good
 
       t.timestamps

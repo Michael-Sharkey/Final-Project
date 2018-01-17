@@ -1,9 +1,9 @@
 class CreateWorksets < ActiveRecord::Migration[5.1]
   def change
     create_table :worksets do |t|
-      t.references :workout, foreign_key: true
+      t.integer :workout_id
       t.integer :movement_id
-      t.references :exercise, foreign_key: true
+      t.integer :exercise_id
 
       t.integer :weight
       t.integer :reps
